@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use Session;
 class AdminController extends Controller
 {
     public function login(Request $request){
@@ -20,5 +21,10 @@ class AdminController extends Controller
 
     public function dashboard(Request $request){
     	return view('admin.dashboard');
+    }
+
+    public function logout(Request $request){
+        Session::flush();
+        return redirect('/admin')->with('successFlushMsg', 'You are logOut successfully');
     }
 }

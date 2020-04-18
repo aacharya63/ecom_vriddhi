@@ -30,6 +30,12 @@
                   <strong>Error!</strong> {{ Session::get('error_flash_msg') }}
                 </div>
                 @endif
+                @if(Session::has('successFlushMsg'))
+                <div class="alert alert-success" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <strong>Success!</strong> {{ Session::get('successFlushMsg') }}
+                </div>
+                @endif
             <div class="login-area">
                 <div class="panel panel-bd panel-custom">
                     <div class="panel-heading">
