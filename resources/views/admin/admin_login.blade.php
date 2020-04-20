@@ -74,16 +74,7 @@
         </div>
         <!-- /.content-wrapper -->
         <!-- jQuery -->
-        <script src="{{ asset('admin_assets/plugins/jQuery/jquery-1.12.4.min.js') }}" type="text/javascript"></script>
-        <!-- bootstrap js -->
-        <script src="{{ asset('admin_assets/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
-        <script type="text/javascript">
-            window.setTimeout(function() {
-                $(".alert").fadeTo(500, 0).slideUp(500, function(){
-                    $(this).remove(); 
-                });
-            }, 2000);
-        </script>
+        
     </body>
 
 </html>
