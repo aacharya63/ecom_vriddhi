@@ -29,6 +29,7 @@ Route::get('/home', 'HomeController@index');
 Route::group(['middleware'	=>	['auth']], function(){
 	Route::match(['get','post'], '/admin/dashboard', 'AdminController@dashboard');
 	Route::match(['get','post'], '/admin/addProduct', 'ProductController@add');
+	Route::match(['get','post'], '/admin/viewProduct', 'ProductController@view');
 });
 
 Route::get('/logout', 'AdminController@logout');

@@ -19,6 +19,8 @@ class CreateProductsTable extends Migration
             $table->string('code')->unique();
             $table->string('color');
             $table->string('desciption');
+            $table->string('actualPrice');
+            $table->string('discount');
             $table->string('price');
             $table->string('img');
             $table->timestamps();

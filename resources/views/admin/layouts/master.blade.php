@@ -42,6 +42,7 @@
       <!-- Theme style -->
       <link href="{{ asset('admin_assets/dist/css/stylecrm.css') }}" rel="stylesheet" type="text/css"/>
       <!-- Theme style rtl -->
+      <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
       <!--<link href="assets/dist/css/stylecrm-rtl.css" rel="stylesheet" type="text/css"/>-->
       <!-- End Theme Layout Style
          =====================================================================-->
@@ -93,8 +94,13 @@
          =====================================================================-->
       <!-- Dashboard js -->
       <script src="{{ asset('admin_assets/dist/js/dashboard.js') }}" type="text/javascript"></script>
-      <!-- End Theme label Script
-         =====================================================================-->
+      <script type="text/javascript" src="http://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+      <!-- End Theme label Script==========-->
+      <script type="text/javascript">
+         $(document).ready( function () {
+             $('#viewProductTable').DataTable();
+         } );
+      </script>
       <script>
          function dash() {
          // single bar chart

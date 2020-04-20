@@ -23,7 +23,7 @@
                      <div class="panel panel-bd lobidrag">
                         <div class="panel-heading">
                            <div class="btn-group" id="buttonlist"> 
-                              <a class="btn btn-add " href="clist.html"> 
+                              <a class="btn btn-add " href="{{ url('admin/viewProduct') }}"> 
                               <i class="fa fa-list"></i>  Product List </a>  
                            </div>
                         </div>
@@ -37,31 +37,47 @@
                            <form action="{{ url('admin/addProduct') }}" method="post" enctype="multipart/form-data">
                            	@csrf
                            	<div class="col-sm-6">
-                              <div class="form-group">
+                              <div class="form-group {{ $errors->has('product_name') ? 'has-error' : '' }}">
                                  <label> Name</label>
                                  <input type="text" class="form-control" name="product_name" id="product_name" placeholder="Enter Product Name" required>
+                                 <span class="text-danger">{{ $errors->first('product_name') }}</span>
                               </div>
-                              <div class="form-group">
+                              <div class="form-group {{ $errors->has('product_code') ? 'has-error' : '' }}">
                                  <label>Product Code</label>
                                  <input type="text" class="form-control" name="product_code" id="product_code" placeholder="Enter Product Code" required>
+                                 <span class="text-danger">{{ $errors->first('product_code') }}</span>
                               </div>
-                              <div class="form-group">
+                              <div class="form-group {{ $errors->has('product_color') ? 'has-error' : '' }}">
                                  <label>Product Color</label>
                                  <input type="text" class="form-control" name="product_color" id="product_color" placeholder="Enter Product Color" required>
+                                 <span class="text-danger">{{ $errors->first('product_color') }}</span>
+                              </div>
+                              <div class="form-group {{ $errors->has('product_actual_price') ? 'has-error' : '' }}">
+                                 <label>Product Actual Price</label>
+                                 <input type="text" class="form-control" name="product_actual_price" id="product_actual_price" placeholder="Enter Product Actual Price" required>
+                                 <span class="text-danger">{{ $errors->first('product_actual_price') }}</span>
                               </div>
                             </div>
                            	<div class="col-sm-6">
-                               <div class="form-group">
+                               <div class="form-group {{ $errors->has('product_discount') ? 'has-error' : '' }}">
+                                  <label>Discount On Product</label>
+                                  <input type="number" class="form-control" name="product_discount" id="product_discount" required="required" placeholder="Discount On Product in %" />
+                                  <span class="text-danger">{{ $errors->first('product_discount') }}</span>
+                               </div>
+                               <div class="form-group {{ $errors->has('product_desciption') ? 'has-error' : '' }}">
                                   <label>Product Description</label>
                                   <textarea class="form-control" name="product_desciption" id="product_desciption"></textarea>
+                                  <span class="text-danger">{{ $errors->first('product_desciption') }}</span>
                                </div>
-                               <div class="form-group">
+                               <div class="form-group {{ $errors->has('product_img') ? 'has-error' : '' }}">
                                   <label>Product Image upload</label>
                                   <input type="file" name="product_img" id="product_img" class="form-control">
+                                  <span class="text-danger">{{ $errors->first('product_img') }}</span>
                                </div>
-                               <div class="form-group">
-                                  <label>Product Price</label>
+                               <div class="form-group {{ $errors->has('product_price') ? 'has-error' : '' }}">
+                                  <label>Product selling Price</label>
                                   <input type="text" class="form-control" name="product_price" id="product_price" placeholder="Enter Product Price" required>
+                                  <span class="text-danger">{{ $errors->first('product_price') }}</span>
                                </div>  
                               
                           </div>
