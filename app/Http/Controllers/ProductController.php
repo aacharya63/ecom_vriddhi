@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+Use Alert;
 use Illuminate\Http\Request;
 use App\Product;
 use Image;
@@ -72,7 +72,7 @@ class ProductController extends Controller
     			}
     		}
     		$product->save();
-    		return redirect('/admin/addProduct')->with('flsMsgSuc', 'Product Added Successfully');
+    		return redirect('/admin/viewProduct')->with('flsMsgSuc', 'Product Added Successfully');
     	}
     	return view('admin.product.addProduct');
     }
@@ -81,4 +81,34 @@ class ProductController extends Controller
     	$viewProduct =	Product::get();
     	return view('admin.product.viewProduct')->with(compact('viewProduct', $viewProduct));
     }
+
+    public function edit(Request $request, $id=null){
+    	if ($request->isMethod('post')) {
+    		$data = $request->all();
+    		if ($request->hasfile('product_img')) {
+    			echo $img_tmp	=	Request('product_img');
+    			if ( $img_tmp->isValid() ) {
+	    			$extension	=	$img_tmp->getClientOriginalExtension();
+	    			$filename	=	rand(100,9999).'.'.$extension;
+	    			$img_path	=	'uploads/products/'.$filename;
+	    			Image::make($img_tmp)->resize(500,500)->save($img_path);
+    			}
+    		}
+    		else{
+				$filename = $data['current_img'];
+			}
+			if (empty($data['product_desciption'])) {
+				$data['product_desciption'] = '';
+			}
+			Product::where(['id'=>$id])->update(['name'=>$data['product_name'], 'code'=>$data['product_code'], 'color'=>$data['product_color'], 'desciption'=>$data['product_desciption'], 'actualPrice'=>$data['product_actual_price'], 'discount'=>$data['product_discount'], 'price'=>$data['product_price'], 'img'=>$filename]);
+			return redirect()->back()->with('fls_suc_msg_ep', 'Product updated successfully');
+    	}
+    	$product_dtl =	Product::where(['id'=>$id])->first();
+    	return view('admin.product.editProduct')->with(compact('product_dtl'));
+    }
+        public function delete(Request $request, $id=null){
+        	$product_delete	= Product::where('id',$id)->delete();
+        	Alert::success('Product deleted successfully', 'Success Message');
+        	return redirect()->back()->with('fls_suc_msg_dp', 'Product deleted successfully');
+        }
 }
