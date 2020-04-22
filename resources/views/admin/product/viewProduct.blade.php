@@ -95,14 +95,16 @@
                                  <thead>
                                     <tr class="info">
                                        <th>Sr. No.</th>
-                                       <th>Product Title</th>
-                                       <th>Product Cost (Actual Cost)</th>
+                                       <th>Category</th>
+                                       <th>Title</th>
+                                       <th>Actual Cost</th>
                                        <th>Discount</th>
                                        <th>Cost after discount</th>
-                                       <th>Product Code</th>
-                                       <th>Product Color</th>
-                                       <th>Product Description</th>
-                                       <th>Product Image</th>
+                                       <th>Code</th>
+                                       <th>Color</th>
+                                       <th>Description</th>
+                                       <th>Image</th>
+                                       <th>Status</th>
                                        <th>Created At</th>
                                        <th>Action</th>
                                     </tr>
@@ -112,6 +114,7 @@
                                  	@foreach($viewProduct as $vp)
                                  	<tr>
                                  	   <td>{{$loop->iteration}}</td>
+                                       <td>{{ $vp->categoryId }}</td>
                                  	   <td>{{ $vp->name }}</td>
                                  	   <td>{{ $vp->actualPrice }}</td>
                                  	   <td>{{ $vp->discount }}</td>
@@ -125,6 +128,7 @@
                                  	   	<span class="label-custom label label-danger">Image Not Available</span>
                                  	   	@endif
                                  	   </td>
+                                       <td><span class="label label-success">Active</span></td>
                                  	   <td>{{ $vp->created_at }}</td>
                                  	   
                                  	   

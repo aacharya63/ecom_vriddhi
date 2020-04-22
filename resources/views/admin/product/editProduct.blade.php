@@ -39,6 +39,13 @@
                            	@csrf
                            	<div class="col-sm-6">
                               <div class="form-group {{ $errors->has('product_name') ? 'has-error' : '' }}">
+                                 <label> Select Categry</label>
+                                 <select class="form-control" name="uc" id="uc">
+                                   <?php echo $catDdl; ?>
+                                 </select>
+                                 <span class="text-danger">{{ $errors->first('product_name') }}</span>
+                              </div>
+                              <div class="form-group {{ $errors->has('product_name') ? 'has-error' : '' }}">
                                  <label> Name</label>
                                  <input type="text" class="form-control" name="product_name" id="product_name" value="{{ $product_dtl->name }}" placeholder="Enter Product Name" required>
                                  <span class="text-danger">{{ $errors->first('product_name') }}</span>

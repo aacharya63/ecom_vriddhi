@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 Use Alert;
 use Illuminate\Http\Request;
 use App\Product;
+use App\Category;
 use Image;
 //use Illuminate\Support\Facades\Input;
 
@@ -47,6 +48,7 @@ class ProductController extends Controller
     		$data	=	$request->all();
 
     		$product 	=	new Product();
+            $product->categoryId  =   $data['uc'];
     		$product->name 	=	$data['product_name'];
     		$product->code 	=	$data['product_code'];
     		$product->color 	=	$data['product_color'];
@@ -74,7 +76,16 @@ class ProductController extends Controller
     		$product->save();
     		return redirect('/admin/viewProduct')->with('flsMsgSuc', 'Product Added Successfully');
     	}
-    	return view('admin.product.addProduct');
+        $category = Category::where(['parentId'=>0])->get();
+        $catDdl =   "<option value='' selected='selected' disabled='disabled'>--Select--</option>";
+        foreach ($category as $cat) {
+           $catDdl.="<option value='".$cat->id."'>".$cat->name."</option>"; 
+           $subCat = Category::where(['parentId'=>$cat->id])->get();
+           foreach ($subCat as $sc) {
+               $catDdl.="<option value='".$sc->id."'>".$sc->name."</option>";
+           }
+        }
+    	return view('admin.product.addProduct')->with(compact('catDdl'));
     }
 
     public function view(Request $request){
@@ -100,11 +111,30 @@ class ProductController extends Controller
 			if (empty($data['product_desciption'])) {
 				$data['product_desciption'] = '';
 			}
-			Product::where(['id'=>$id])->update(['name'=>$data['product_name'], 'code'=>$data['product_code'], 'color'=>$data['product_color'], 'desciption'=>$data['product_desciption'], 'actualPrice'=>$data['product_actual_price'], 'discount'=>$data['product_discount'], 'price'=>$data['product_price'], 'img'=>$filename]);
-			return redirect()->back()->with('fls_suc_msg_ep', 'Product updated successfully');
+			Product::where(['id'=>$id])->update(['name'=>$data['product_name'], 'code'=>$data['product_code'], 'color'=>$data['product_color'], 'desciption'=>$data['product_desciption'], 'actualPrice'=>$data['product_actual_price'], 'discount'=>$data['product_discount'], 'price'=>$data['product_price'], 'categoryId'=>$data['uc'], 'img'=>$filename]);
+			return redirect('admin/viewProduct')->back()->with('fls_suc_msg_ep', 'Product updated successfully');
     	}
     	$product_dtl =	Product::where(['id'=>$id])->first();
-    	return view('admin.product.editProduct')->with(compact('product_dtl'));
+        $category = Category::where(['parentId'=>0])->get();
+        $catDdl =   "<option value='' selected='selected' disabled='disabled'>--Select--</option>";
+        foreach ($category as $cat) {
+           if ($cat->id==$product_dtl->categoryId) {
+               $selected = "selected";
+           }else{
+               $selected = "";
+           }
+           $catDdl.="<option value='".$cat->id."'".$selected.">".$cat->name."</option>";
+        }
+        $sc = Category::where(['parentId'=>$cat->id])->get();
+        foreach ($sc as $s) {
+            if ($cat->id==$product_dtl->categoryId) {
+                $selected = "selected";
+            }else{
+                $selected = "";
+            }
+            $catDdl.="<option value='".$sc->id."'".$selected.">".$sc->name."</option>";
+        }
+    	return view('admin.product.editProduct')->with(compact('product_dtl', 'catDdl'));
     }
         public function delete(Request $request, $id=null){
         	$product_delete	= Product::where('id',$id)->delete();
