@@ -16,6 +16,13 @@
                   <small>Product list</small>
                </div>
             </section>
+            @if(Session::has('fls_suc_msg_vp'))
+            <div class="alert alert-success" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <strong>Successfully!</strong> {{ Session::get('fls_suc_msg_vp') }}
+            </div>
+            @endif
+            <span class="text-success text-center status_success_class" id="status_success" style="display: none;"><h1>Status updated successfully</h1></span>
             <!-- Main content -->
             <section class="content">
                <div class="row">
@@ -128,7 +135,10 @@
                                  	   	<span class="label-custom label label-danger">Image Not Available</span>
                                  	   	@endif
                                  	   </td>
-                                       <td><span class="label label-success">Active</span></td>
+                                       <td>
+                                          <input data-id="{{$vp->id}}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $vp->status ? 'checked' : '' }}>
+                                          
+                                       </td>
                                  	   <td>{{ $vp->created_at }}</td>
                                  	   
                                  	   
@@ -144,7 +154,7 @@
                                  	      <div class="modal-content">
                                  	         <div class="modal-header modal-header-primary">
                                  	            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                 	            <h3><i class="fa fa-user m-r-5"></i> Delete Customer</h3>
+                                 	            <h3><i class="fa fa-user m-r-5"></i> Delete Product</h3>
                                  	         </div>
                                  	         <div class="modal-body">
                                  	            <div class="row">

@@ -7,6 +7,7 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>@yield('title') - Maxmoon</title>
+      <!-- <meta name="csrf-token" content="{{ csrf_token() }}"> -->
       <!-- Favicon and touch icons -->
       <link rel="shortcut icon" href="{{ asset('admin_assets/dist/img/ico/favicon.png') }}" type="image/x-icon">
       <!-- Start Global Mandatory Style
@@ -15,8 +16,8 @@
       <link href="{{ asset('admin_assets/plugins/jquery-ui-1.12.1/jquery-ui.min.css') }}" rel="stylesheet" type="text/css"/>
       <!-- Bootstrap -->
       <link href="{{ asset('admin_assets/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
-      <!-- Bootstrap rtl -->
-      <!--<link href="assets/bootstrap-rtl/bootstrap-rtl.min.css" rel="stylesheet" type="text/css"/>-->
+      <!-- Bootstrap toggle -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/css/bootstrap-toggle.css" rel="stylesheet" type="text/css"/>
       <!-- Lobipanel css -->
       <link href="{{ asset('admin_assets/plugins/lobipanel/lobipanel.min.css') }}" rel="stylesheet" type="text/css"/>
       <!-- Pace css -->
@@ -98,8 +99,32 @@
       <!-- End Theme label Script==========-->
       <script type="text/javascript">
          $(document).ready( function () {
-             $('#viewProductTable').DataTable();
-         } );
+            $('#viewProductTable').DataTable();
+            
+         });
+      </script>
+
+      <script type="text/javascript">
+        $(function() {
+          $('.toggle-class').change(function() {
+              var status = $(this).prop('checked') == true ? 1 : 0; 
+              var user_id = $(this).data('id'); 
+               
+              $.ajax({
+                  type: "GET",
+                  dataType: "json",
+                  url: '/admin/updateProductStatus',
+                  data: {'status': status, id: user_id},
+                  success: function(data){
+                    console.log(data.success)
+                    $('#status_success').show();
+                    setTimeout(function(){
+                       $('#status_success').fadeOut('slow');
+                    }, 3000);
+                  }
+              });
+          })
+        })
       </script>
       <script>
          function dash() {
@@ -181,6 +206,7 @@
          }
          dash();         
       </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/js/bootstrap-toggle.js" type="text/javascript"></script>
       @include('sweetalert::alert')
    </body>
    </html>

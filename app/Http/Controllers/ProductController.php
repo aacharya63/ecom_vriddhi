@@ -141,4 +141,13 @@ class ProductController extends Controller
         	Alert::success('Product deleted successfully', 'Success Message');
         	return redirect()->back()->with('fls_suc_msg_dp', 'Product deleted successfully');
         }
+        
+        public function ups(Request $request)
+        {
+            $products = Product::find($request->id);
+            $products->status = $request->status;
+            $products->save();
+      
+            return response()->json(['success'=>'Status change successfully.']);
+        }
 }

@@ -24,6 +24,7 @@ class CreateProductsTable extends Migration
             $table->string('discount');
             $table->string('price');
             $table->string('img');
+            $table->tinyInteger('status')->default('1');
             $table->timestamps();
         });
     }
