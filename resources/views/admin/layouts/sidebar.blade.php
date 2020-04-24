@@ -33,6 +33,13 @@
                <li><a href="{{ url('admin/viewCategory') }}">View category</a></li>
             </ul>
          </li>
+         <li>
+            <a href="{{ url('admin/banner') }}">
+            <i class="fa fa-product-hunt"></i><span>Banner</span>
+            
+            </a>
+            
+         </li>
       </ul>
    </div>
    <!-- /.sidebar -->

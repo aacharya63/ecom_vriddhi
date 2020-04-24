@@ -39,6 +39,9 @@ Route::group(['middleware'	=>	['auth']], function(){
 	Route::match(['get','post'], '/admin/editCategory/{id}', 'CategoryController@edit');
 	Route::match(['get','post'], '/admin/deleteCategory/{id}', 'CategoryController@destroy');
 	Route::get('/admin/updateCategoryStatus', 'CategoryController@ucs');
+	// category route ends here
+	Route::match(['get','post'], '/admin/banner', 'BannerController@index');
+	Route::match(['get','post'], '/admin/addBanner', 'BannerController@create');
 });
 
 Route::get('/logout', 'AdminController@logout');
