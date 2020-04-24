@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+Use Alert;
 use App\Category;
 use Illuminate\Http\Request;
 
@@ -12,9 +12,10 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function view(Request $request)
     {
-        //
+        $category = Category::get();
+        return view('admin.category.viewCategory')->with(compact('category'));
     }
 
     /**
@@ -67,9 +68,38 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(Request $request, $id=null)
     {
-        //
+        if ($request->isMethod('post')) {
+            $data = $request->all();
+            
+            if (empty($data['product_desciption'])) {
+                $data['product_desciption'] = '';
+            }
+            Category::where(['id'=>$id])->update(['parentId'=>$data['parent_category'], 'name'=>$data['category_name'], 'url'=>$data['category_url'], 'description'=>$data['category_description'], 'status'=>$data['category_status']]);
+            return redirect('admin/viewCategory')->with('fls_suc_msg_ep', 'Category updated successfully');
+        }
+        $category_dtl =  Category::where(['id'=>$id])->first();
+        $category = Category::where(['parentId'=>0])->get();
+        $catDdl =   "<option value='' selected='selected' disabled='disabled'>--Select--</option>";
+        foreach ($category as $cat) {
+           if ($cat->id==$category_dtl->categoryId) {
+               $selected = "selected";
+           }else{
+               $selected = "";
+           }
+           $catDdl.="<option value='".$cat->id."'".$selected.">".$cat->name."</option>";
+        }
+        $sc = Category::where(['parentId'=>$cat->id])->get();
+        foreach ($sc as $s) {
+            if ($cat->id==$category_dtl->categoryId) {
+                $selected = "selected";
+            }else{
+                $selected = "";
+            }
+            $catDdl.="<option value='".$sc->id."'".$selected.">".$sc->name."</option>";
+        }
+        return view('admin.category.editCategory')->with(compact('category_dtl', 'catDdl', 'sc'));
     }
 
     /**
@@ -90,8 +120,18 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Category $category, $id=null)
     {
-        //
+        $category_delete = Category::where('id',$id)->delete();
+        Alert::success('Category deleted successfully', 'Success Message');
+        return redirect()->back()->with('fls_suc_msg_cat', 'Product deleted successfully');
+    }
+    public function ucs(Request $request)
+    {
+        $category = Category::find($request->id);
+        $category->status = $request->status;
+        $category->save();
+    
+        return response()->json(['success'=>'Category Status change successfully.']);
     }
 }

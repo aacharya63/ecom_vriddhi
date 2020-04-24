@@ -108,18 +108,41 @@
         $(function() {
           $('.toggle-class').change(function() {
               var status = $(this).prop('checked') == true ? 1 : 0; 
-              var user_id = $(this).data('id'); 
+              var _id = $(this).data('id'); 
                
               $.ajax({
                   type: "GET",
                   dataType: "json",
                   url: '/admin/updateProductStatus',
-                  data: {'status': status, id: user_id},
+                  data: {'status': status, id: _id},
                   success: function(data){
                     console.log(data.success)
                     $('#status_success').show();
                     setTimeout(function(){
                        $('#status_success').fadeOut('slow');
+                    }, 3000);
+                  }
+              });
+          })
+        })
+      </script>
+      <!-- category status -->
+      <script type="text/javascript">
+        $(function() {
+          $('.toggle-class-category').change(function() {
+              var status = $(this).prop('checked') == true ? 1 : 0; 
+              var _id = $(this).data('id'); 
+               
+              $.ajax({
+                  type: "GET",
+                  dataType: "json",
+                  url: '/admin/updateCategoryStatus',
+                  data: {'status': status, id: _id},
+                  success: function(data){
+                    console.log(data.success)
+                    $('#status_success_cat').show();
+                    setTimeout(function(){
+                       $('#status_success_cat').fadeOut('slow');
                     }, 3000);
                   }
               });

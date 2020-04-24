@@ -30,7 +30,7 @@
             </a>
             <ul class="treeview-menu">
                <li><a href="{{ url('admin/addCategory') }}">Add category</a></li>
-               <li><a href="{{ url('admin/viewCategory') }}">View product</a></li>
+               <li><a href="{{ url('admin/viewCategory') }}">View category</a></li>
             </ul>
          </li>
       </ul>
