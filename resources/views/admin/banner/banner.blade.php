@@ -16,13 +16,19 @@
                   <small>Banner list</small>
                </div>
             </section>
-            @if(Session::has('fls_suc_msg_ban'))
+            @if(Session::has('fls_msg_suc_ban'))
             <div class="alert alert-success" role="alert">
               <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <strong>Successfully!</strong> {{ Session::get('fls_suc_msg_ban') }}
+              <strong>Successfully!</strong> {{ Session::get('fls_msg_suc_ban') }}
             </div>
             @endif
-            <span class="text-success text-center status_success_class" id="status_success_cat" style="display: none;"><h1>Status updated successfully</h1></span>
+            @if(Session::has('fls_suc_msg_db'))
+            <div class="alert alert-success" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <strong>Successfully!</strong> {{ Session::get('fls_suc_msg_db') }}
+            </div>
+            @endif
+            <span class="text-success text-center status_success_class" id="status_success_ban" style="display: none;"><h1>Status updated successfully</h1></span>
             <!-- Main content -->
             <section class="content">
                <div class="row">
@@ -114,23 +120,31 @@
                                     </tr>
                                  </thead>
                                  <tbody>
-                                 	@if(!empty($category))
-                                 	@foreach($category as $cat)
+                                 	@if(!empty($banner_data))
+                                    
+                                 	@foreach($banner_data as $bd)
                                  	<tr>
                                  	   <td>{{$loop->iteration}}</td>
-                                       <td>{{ $cat->parentId }}</td>
-                                 	   <td>{{ $cat->name }}</td>
-                                 	   <td>{{ $cat->url }}</td>
-                                 	   <td>{{ $cat->description }}</td>
+                                       <td>{{ $bd->name }}</td>
+                                 	   <td>{{ $bd->text_style }}</td>
+                                 	   <td>{{ $bd->sort_order }}</td>
+                                 	   <td>{{ $bd->content }}</td>
+                                       <td><a href="{{ $bd->link }}" target="_BLANK"> {{ $bd->link }} </a></td>
+
                                  	   <td>
-                                          <input data-id="{{$cat->id}}" class="toggle-class-category" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $cat->status ? 'checked' : '' }}>
-                                          
+                                          <input data-id="{{$bd->id}}" class="toggle-class-banner" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $bd->status ? 'checked' : '' }}>
                                        </td>
-                                 	   <td>{{ $cat->created_at }}</td>
+                                       <td>@if(!empty($bd->img))
+                                          <img src="{{ url('uploads/banner/'.$bd->img) }}" class="img-circle" alt="{{ $bd->name }} Image" width="50" height="50">
+                                          @else
+                                          <span class="label-custom label label-danger">Image Not Available</span>
+                                          @endif
+                                       </td>
+                                 	   <td>{{ $bd->created_at }}</td>
                                  	   
                                  	   
                                  	   <td>
-                                 	   	  <a href="{{ url('admin/editCategory/'.$cat->id) }}" class="btn btn-add btn-sm"><i class="fa fa-pencil"></i></a>
+                                 	   	  <a href="{{ url('admin/editBanner/'.$bd->id) }}" class="btn btn-add btn-sm"><i class="fa fa-pencil"></i></a>
                                  	      
                                  	      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteCategory"><i class="fa fa-trash-o"></i> </button>
                                  	   </td>
@@ -141,7 +155,7 @@
                                  	      <div class="modal-content">
                                  	         <div class="modal-header modal-header-primary">
                                  	            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                 	            <h3><i class="fa fa-user m-r-5"></i> Delete Product</h3>
+                                 	            <h3><i class="fa fa-user m-r-5"></i> Delete Banner</h3>
                                  	         </div>
                                  	         <div class="modal-body">
                                  	            <div class="row">
@@ -149,11 +163,11 @@
                                  	                  <form class="form-horizontal">
                                  	                     <fieldset>
                                  	                        <div class="col-md-12 form-group user-form-group">
-                                 	                           <label class="control-label">Delete Category</label>
+                                 	                           <label class="control-label">Delete Banner</label>
                                  	                           <div class="pull-right">
                                  	                              <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">NO</button>
                                  	                              <!-- <button type="submit" >button> -->
-                                 	                              	<a href="{{ url('admin/deleteCategory/'.$cat->id) }}" class="btn btn-add btn-sm">YES</a>
+                                 	                              	<a href="{{ url('admin/deleteBanner/'.$bd->id) }}" class="btn btn-add btn-sm">YES</a>
                                  	                           </div>
                                  	                        </div>
                                  	                     </fieldset>

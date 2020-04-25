@@ -149,6 +149,29 @@
           })
         })
       </script>
+      <!-- banner status -->
+      <script type="text/javascript">
+        $(function() {
+          $('.toggle-class-banner').change(function() {
+              var status = $(this).prop('checked') == true ? 1 : 0; 
+              var _id = $(this).data('id'); 
+               
+              $.ajax({
+                  type: "GET",
+                  dataType: "json",
+                  url: '/admin/updateBannerStatus',
+                  data: {'status': status, id: _id},
+                  success: function(data){
+                    console.log(data.success)
+                    $('#status_success_ban').show();
+                    setTimeout(function(){
+                       $('#status_success_ban').fadeOut('slow');
+                    }, 3000);
+                  }
+              });
+          })
+        })
+      </script>
       <script>
          function dash() {
          // single bar chart

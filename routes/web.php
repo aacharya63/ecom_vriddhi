@@ -40,8 +40,11 @@ Route::group(['middleware'	=>	['auth']], function(){
 	Route::match(['get','post'], '/admin/deleteCategory/{id}', 'CategoryController@destroy');
 	Route::get('/admin/updateCategoryStatus', 'CategoryController@ucs');
 	// category route ends here
-	Route::match(['get','post'], '/admin/banner', 'BannerController@index');
+	Route::match(['get','post'], '/admin/banner', 'BannerController@create');
 	Route::match(['get','post'], '/admin/addBanner', 'BannerController@create');
+	Route::match(['get','post'], '/admin/editBanner/{id}', 'BannerController@edit');
+	Route::match(['get','post'], '/admin/deleteBanner/{id}', 'BannerController@delete');
+	Route::get('/admin/updateBannerStatus', 'BannerController@ubs');
 });
 
 Route::get('/logout', 'AdminController@logout');
