@@ -172,6 +172,45 @@
           })
         })
       </script>
+      <!-- add remove fields -->
+      <script type="text/javascript">
+        $(document).ready(function(){
+
+    var counter = 2;
+
+    $("#addButton").click(function () {
+
+  if(counter>10){
+            alert("Only 10 textboxes allow");
+            return false;
+  }
+
+  var newTextBoxDiv = $(document.createElement('div'))
+       .attr("id", 'TextBoxDiv' + counter);
+
+  newTextBoxDiv.after().html('<hr><div class="form-group {{ $errors->has("sku") ? "has-error" : "" }}"><label>Product SKU</label><input type="textbox" id="sku" name="sku[]" placeholder="Stock keeping unit" class="form-control" value="{{ old("sku" . $product_data->id, "") }}"></div><div class="form-group {{ $errors->has("size") ? "has-error" : "" }}"><label>Product Size</label><input type="textbox" id="size" name="size[]" placeholder="Product Size" class="form-control" value="{{ old("size" . $product_data->id, "") }}"></div><div class="form-group {{ $errors->has("price") ? "has-error" : "" }}"><label>Product price</label><input type="textbox" id="price" name="price[]" placeholder="product price" class="form-control" value="{{ old("price" . $product_data->id, "") }}"></div><div class="form-group {{ $errors->has("stock") ? "has-error" : "" }}"><label>Product stock</label><input type="textbox" id="stock" name="stock[]" placeholder="product stock" class="form-control" value="{{ old("stock" . $product_data->id, "") }}"></div>');
+
+  newTextBoxDiv.appendTo("#TextBoxesGroup");
+
+
+  counter++;
+     });
+
+     $("#removeButton").click(function () {
+  if(counter==1){
+          alert("No more textbox to remove");
+          return false;
+       }
+
+  counter--;
+
+        $("#TextBoxDiv" + counter).remove();
+
+     });
+
+     
+  });
+      </script>
       <script>
          function dash() {
          // single bar chart

@@ -143,8 +143,8 @@
                                  	   
                                  	   
                                  	   <td>
-                                 	   	  <a href="{{ url('admin/editProduct/'.$vp->id) }}" class="btn btn-add btn-sm"><i class="fa fa-pencil"></i></a>
-                                 	      
+                                 	   	<a href="{{ url('admin/editProduct/'.$vp->id) }}" class="btn btn-add btn-sm"><i class="fa fa-pencil"></i></a>
+                                 	      <a href="{{ url('admin/addAttribute/'.$vp->id) }}" class="btn btn-warning btn-sm"><i class="fa fa-plus"></i></a>
                                  	      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteProduct"><i class="fa fa-trash-o"></i> </button>
                                  	   </td>
                                  	</tr>

@@ -20,7 +20,6 @@
         </div>
       </div>
     </div>
-    
     @endforeach
     @else
     <h3 class="text-danger">No Slider Available</h3>
@@ -155,53 +154,29 @@
   
       <div class="Latest_product_main_box">
         <h2 class="main_hadding_h2 underline margin-bottom_50px">Latest Products</h2>
-       <div class="Latest-product-slider">
+        @if(!empty($product_data))
+        @foreach($product_data as $pd)
+        <div class="Latest-product-slider">
           <div class="slide">
             <div class="col-md-12">
               <div class="Latest_product_box">
-                <img src="{{ asset('front_assets/image/Walki-Talki-2.jpg') }}" class="img-responsive">
-                <h5 class="main_hadding_h5">HD waterproof Night Vishion cctv camera ...</h5>
+                <img src="uploads/products/{{ $pd->img }}" class="img-responsive">
+                Name:-<h5 class="main_hadding_h5">{{ $pd->name }}</h5>
+                Code:-<p class="text-info">{{ $pd->code }}</p>
+                Color:-<p class="text-info">{{ $pd->color }}</p>
+                Description:-<p class="text-info">{{ $pd->decipition }}</p>
+                Discount:-<p class="text-info">{{ $pd->discount }}</p>
+                Price:-<h6 class="main_hadding_h5">{{ $pd->price }}</h6>
                 <a href="#" class="btn custom-btn2"> Add To Cart</a>
               </div>
             </div>
           </div>
-          <div class="slide">
-            <div class="col-md-12">
-              <div class="Latest_product_box">
-                <img src="{{ asset('front_assets/image/cctv.jpg') }}" class="img-responsive">
-                <h5 class="main_hadding_h5">HD waterproof Night Vishion cctv camera ...</h5>
-                <a href="#" class="btn custom-btn2"> Add To Cart</a>
-              </div>
-            </div>
-          </div>
-          <div class="slide">
-            <div class="col-md-12">
-              <div class="Latest_product_box">
-                <img src="{{ asset('front_assets/image/Walki-Talki-2.jpg') }}" class="img-responsive">
-                <h5 class="main_hadding_h5">HD waterproof Night Vishion cctv camera ...</h5>
-                <a href="#" class="btn custom-btn2"> Add To Cart</a>
-              </div>
-            </div>
-          </div>
-          <div class="slide">
-            <div class="col-md-12">
-              <div class="Latest_product_box">
-                <img src="{{ asset('front_assets/image/cctv.jpg') }}" class="img-responsive">
-                <h5 class="main_hadding_h5">HD waterproof Night Vishion cctv camera ...</h5>
-                <a href="#" class="btn custom-btn2"> Add To Cart</a>
-             </div>
-            </div> 
-          </div>
-          <div class="slide">
-            <div class="col-md-12">
-              <div class="Latest_product_box">
-                <img src="{{ asset('front_assets/image/Walki-Talki-2.jpg') }}" class="img-responsive">
-                <h5 class="main_hadding_h5">HD waterproof Night Vishion cctv camera ...</h5>
-                <a href="#" class="btn custom-btn2"> Add To Cart</a>
-              </div>
-            </div>
-          </div>
-      </div>
+        </div>
+        @endforeach
+        @else
+        <h1 class="text-danger">Product Coming Soon</h1>
+        @endif
+        
 
         
   </div>
