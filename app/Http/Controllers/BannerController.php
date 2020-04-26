@@ -93,9 +93,9 @@ class BannerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function addBanner()
     {
-        //
+        return view('admin.banner.addBanner');
     }
 
     /**

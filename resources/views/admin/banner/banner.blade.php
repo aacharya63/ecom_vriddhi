@@ -46,7 +46,7 @@
                         <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
                            <div class="btn-group">
                               <div class="buttonexport" id="buttonlist"> 
-                                 <a class="btn btn-add" href="{{ url('admin/addBanner') }}"> <i class="fa fa-plus"></i> Add Banner
+                                 <a class="btn btn-add" href="{{ url('admin/banner') }}"> <i class="fa fa-plus"></i> Add Banner
                                  </a>  
                               </div>
                               <button class="btn btn-exp btn-sm dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> Export Table Data</button>

@@ -71,9 +71,7 @@
                                   <input type="file" name="banner_img" id="banner_img" class="form-control">
                                   <span class="text-danger">{{ $errors->first('banner_img') }}</span>
                                </div>
-                               
-                              
-                          </div>
+                            </div>
                           <div class="reset-button">
                              <button type="reset" class="btn btn-warning">Reset</button>
                              <button type="submit" class="btn btn-success">Save</button>
