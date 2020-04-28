@@ -2,17 +2,9 @@ body{
     margin: 0;
     padding: 0;
 }
-p{
-    font-size: 15px;
-    line-height: 25px;
-}
 .menu-section {
     margin-right: 60px;
     padding: 0;
-}
-.our-client-sec {
-    background: #ebebeb;
-    padding-top: 30px;
 }
 .h-a-cont h4 {
     line-height: 30px;
@@ -178,8 +170,6 @@ p{
 }
 .main_hadding_h5 {
     font-weight: 600;
-    line-height: 21px;
-
 }
 .main_hadding_h6 {
     font-weight: 600;
@@ -200,21 +190,24 @@ p{
     font-size: 14px;
     background: white;
     border: 1px solid gainsboro;
-    padding: 10px 15px;
-    font-weight: 600;
+    padding: 4px 10px;
 }   
-.our_product_box h4 {
-    padding: 14px 0;
-    font-size: 20px;
-}
-.underline:after {
-position: absolute;
-    content: '';
-    height: 3px;
-    bottom: -16px;
-    width: 50px;
-    background: #fdc500;
-    left: 3px;
+
+    .underline:after {
+        position: absolute;
+        content: '';
+        height: 3px;
+        bottom: -4px; 
+        width: 50px;
+        background: #fdc500;
+        left: 0;
+          
+          /* optional animation */
+          -o-transition:.5s;
+          -ms-transition:.5s;
+        -moz-transition:.5s;
+        -webkit-transition:.5s;
+        transition:.5s;
     }
 .our_product_box {
     padding-bottom: 40px;
@@ -241,19 +234,6 @@ position: absolute;
     background: white;
     padding: 10px;
     text-align: justify;
-    line-height: 25px;
-    color: #5d5d5d;
-}
-.testimonial_rating h6 {
-    font-size: 14px;
- 
-}
-.testimonial_rating ul {
-    margin-left: 0px;
-}
-
-.testimonial_rating ul li {
-    padding: 0;
 }
 .testimonials_img_triangal img {
     width: 30px;
@@ -296,12 +276,6 @@ position: absolute;
 }
 .client-logo img{
     border: 1px solid gainsboro;
-        padding: 0 10px;
-}
-.footer-box2 {
-    text-align: left !important;
-    font-size: 14px;
-    font-weight: 600;
 }
 .footer-section {
     background: #011120;
@@ -354,7 +328,7 @@ position: absolute;
     padding-bottom: 20px;
 }
 .footer-bottom-section {
-    background: #000f1d;
+    background: black;
     color: white;
 }
 .footer-bottom-box p {
@@ -364,283 +338,11 @@ position: absolute;
     padding: 10px 0px;
 }
 .footer_address li {
-    padding-bottom: 10px;
+    padding-bottom: 25px;
 }
 .footer_created {
     text-align: right;
 }
-
-
-
-
-/*------------------------------------about us css start------------------*/
-
-.inner-con {
-    padding: 40px 0;
-}
-.about-cont-box p {
-    font-size: 15px;
-    line-height: 27px;
-}
-.about-right-img img {
-    margin-top: 40px;
-}
-.about-text-box-heading {
-    background: #245691;
-    padding: 10px 60px;
-    color: #fff;
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
-.about-text-box-heading h5 {
-    font-size: 16px;
-}
-.about-short-text {
-    padding-left: 100px;
-}
-.color-black{
-    color: #000;
-}
-section.inner-page-cont {
-    background: #062d4c;
-    padding: 40px;
-    text-align: center;
-  
-}
-.contact-text-inner p strong {
-    color: #fdc500;
-}
-
-.contact-text-inner p {
-    color: #fff;
-    font-size: 25px;
-    padding-left: 100px;
-    line-height: 40px;
-    text-align: left;
-}
-.cont-btn-box button {
-    background: #fdc500;
-    border: none;
-    border-radius: 8px;
-    padding: 13px 30px;
-    color: #fff;
-    font-weight: 600;
-    font-size: 16px;
-    margin-top: 20px;
-    outline: none;
-}
-
-.about-text-box-heading h5 i {
-    margin-right: 20px;
-}
-
-
-/*
--------------------------------------online store css start---------------------------*/
-
-.online-store-drop-btn select {
-    height: 40px;
-    padding: 8px 20px;
-    border-radius: 5px;
-    width: 300px;
-}
-
-.online-store-drop-btn {
-    text-align: right;
-    margin-top: 20px;
-}
-.margin-top-30{
-    margin-top: 30px;
-}
-.margin-top-50{
-    margin-top: 50px;
-}
-.new-p-cont p {
-    font-size: 13px;
-    font-weight: 600;
-}
-
-.new-p-cont h4 {
-    font-size: 20px;
-    font-weight: 600;
-    color: #255891;
-}
-.new-p-cont {
-    text-align: center;
-    margin: 10px 0;
-    padding: 5px;
-}
-.new-p-img {
-    border: 1px solid gainsboro;
-}
-.product-tab-bxo ul {
-    list-style: none;
-    padding: 5px;
-    margin-bottom: 40px;
-    display: inline-block;
-    width: 100%;
-}
-.product-tab-bxo ul li {
-    width: 16.5%;
-    text-align: center;
-    border: 2px solid #fdc500;
-    float: left;
-    padding: 35px;
-}
-.product-tab-bxo ul li a {
-    font-weight: 600;
-    color: gray;
-    text-decoration: none;
-}
-li.active-pro a {
-    color: #fff !important;
-}
-
-li.active-pro {
-    background: #fdc500;
-    border: 2px solid #fdc500;
-}
-.free-heading-box {
-    background: #245691;
-    color: #fff;
-    padding: 15px 40px;
-    font-size: 20px;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    font-weight: 600;
-}
-
-.free-con-bxo p i {
-    margin-right: 20px;
-    color: #245691;
-}
-section.book-form-sec {
-    background: #f2f2f2;
-    padding: 40px;
-}
-.center-heading p {
-    font-size: 17px;
-    font-weight: 600;
-}
-.center-heading h2 {
-    font-size: 30px;
-    font-weight: 700;
-    color: #000;
-    margin-bottom: 2px;
-}
-.center-heading:before {
-    content: '';
-    position: absolute;
-    width: 60px;
-    height: 3px;
-    background: #fdc500;
-    bottom: -15px;
-    left: 48%;
-    right: 48%;
-}
-
-.center-heading {
-    position: relative;
-    margin-bottom: 60px;
-}
-.book-form-box input {
-    padding: 13px;
-    width: 100%;
-    border-radius: 15px;
-    border: 1px solid gainsboro;
-        margin-bottom: 30px;
-
-}
-.book-form-box textarea {
-    padding: 13px;
-    width: 100%;
-    border-radius: 15px;
-    border: 1px solid gainsboro;
-    height: 100px;
-}
-.book-form-box label {
-    display: block;
-    font-weight: normal;
-    font-size: 14px;
-    padding-left: 20px;
-}
-.book-form-box form {
-    width: 60%;
-    margin: 0 auto;
-}
-.custom-btn {
-    padding: 12px 30px;
-    border-radius: 8px;
-    border: none;
-    background: #000;
-    color: #fff;
-    text-transform: uppercase;
-    outline: none;
-}
-.play-icon {
-    position: absolute;
-    top: 38%;
-    left: 43%;
-    right: 43%;
-    cursor: pointer;
-}
-.about-right-img {
-    position: relative;
-}
-.news-v-title p {
-    font-size: 14px;
-}
-
-.news-v-title {
-    margin-bottom: 20px;
-}
-.news-v-title h3 {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 2px;
-}
-.blog-content-box a {
-    color: #383838;
-    border-bottom: 2px solid;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 16px;
-}
-.blog-img-box img {
-    margin-bottom: 30px;
-}
-
-.pagination {
-  display: inline-block;
-}
-
-.pagination a {
-    color: black;
-    float: left;
-    padding: 6px 12px;
-    text-decoration: none;
-    border: 1px solid gainsboro;
-    border-radius: 5px !important;
-    margin-right: 7px;
-}
-
-.pagination a.active {
-background-color: #fdc500;
-    color: black;
-    border-radius: 5px;
-}
-
-.pagination a:hover:not(.active) {
-  background-color: #ddd;
-  border-radius: 5px;
-}
-
-
-
-
-
-
-
 
 #cssmenu,#cssmenu ul,#cssmenu ul li,#cssmenu ul li a,#cssmenu #head-mobile{border:0;list-style:none;line-height:1;display:block;position:relative;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
 #cssmenu:after,#cssmenu > ul:after{content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0}
@@ -827,117 +529,7 @@ i.fa.fa-angle-right.custom-right.slick-arrow {
 
 /*----------Product silk silder close--------------------------*/
 
-.desktop{
-    display: block;
-
-}
-.mobile{
-    display: none;
-}
-
-@media screen and (min-width: 320px) and (max-width: 480px) {
-
-.inner-con {
-    padding: 0px 0;
-}
-.online-store-drop-btn select {
-    width: 100%;
-}
-
-.online-store-drop-btn {
-    text-align: left;
-    margin-top: 45px;
-    margin-bottom: 20px;
-}
-.blog-img-box img {
-    margin-bottom: 0px;
-}
-.blog-content-box {
-    margin-bottom: 30px;
-}
-.contact-text-inner p {
-    color: #fff;
-    font-size: 14px;
-    padding-left: 0px;
-    line-height: 25px;
-    text-align: left;
-}
-.cont-btn-box button {
-    background: #fdc500;
-    border: none;
-    border-radius: 8px;
-    padding: 10px 20px;
-    color: #fff;
-    font-weight: 600;
-    font-size: 14px;
-    margin-top: 20px;
-    outline: none;
-}
-
-.about-right-img img {
-    margin-top: 10px;
-    margin-bottom: 20px;
-}
-.about-text-box-heading {
-   padding: 10px 10px;
- 
-}
-.about-short-text {
-    padding-left: 50px;
-}
-.book-form-box form {
-    width: 100%;
-    margin: 0 auto;
-}
-.center-heading:before {
-    content: '';
-    position: absolute;
-    width: 60px;
-    height: 3px;
-    background: #fdc500;
-    bottom: -15px;
-    left: 37%;
-    right: 37%;
-}
-.product-tab-bxo ul li {
-    width: 50%;
-
-}
-.play-icon {
-    position: absolute;
-    top: 30%;
-    left: 40%;
-    right: 40%;
-    cursor: pointer;
-}
-
-
-
-
-
-
-
-
-
-
-.menu-bar-section {
-    float: left;
-    position: absolute;
-    top: 67px;
-    right: 0;
-    z-index: 9999;
-    width: 200%;
-}
-
-.desktop{
-    display: none;
-
-}
-.mobile{
-    display: block;
-}
-
-
+@media screen and (max-width: 767px) {
 .main_hadding_h1 {
     font-size: 25px;
 }
@@ -946,361 +538,8 @@ i.fa.fa-angle-right.custom-right.slick-arrow {
     font-size: 16px;
 }
 .h-a-cont {
-    padding: 20px;
-    margin-bottom: 20px;
-}
-.h-img-box {
-    position: initial;
-}
-.main_hadding_h2 {
-    padding-left: 0px;
-    font-size: 20px;
-}
-.underline:after {
-    position: absolute;
-    left: 0px;
-}
-.Latest-product-slider i.fa.fa-angle-right.custom-right.slick-arrow {
-    top: -13%;
-    position: absolute;
-    background: none;
-    z-index: 99;
-    border: 2px solid #fdc500;
-    padding: 0px 0px;
-    border-radius: 50%;
-    color: #fdc500;
-    font-size: 20px;
-    width: 27px;
-    height: 27px;
-    text-align: center;
-    line-height: 22px;
-    right: 19px;
-}
-.Latest-product-slider i.fa.fa-angle-left.custom-left.slick-arrow {
-    top: -13%;
-    position: absolute;
-    background: none;
-    z-index: 99;
-    border: 2px solid #fdc500;
-    padding: 0px 0px;
-    border-radius: 50%;
-    color: #fdc500;
-    font-size: 20px;
-    width: 27px;
-    height: 27px;
-    text-align: center;
-    line-height: 25px;
-    left: 75%;
-}
-.client-logo img {
-    border: 1px solid gainsboro;
-    width: 75%;
-}
-.client-logo {
-    padding: 6px;
-}
-.margin-bottom_50px {
-    margin-bottom: 28px;
-}
-.resion-img {
-   width: 92px;
-    position: absolute;
-    right: 29px;
-    top: -17px;
-}
-.resion_section {
-    height: 131px;
-    margin-top: 23px;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-.resion-hading {
-    font-size: 12px;
-    padding-top: 0px;
-    padding-left: 15px;
-}
-.footer-section {
-    text-align: center;
-}
-.footer-box img {
-    padding-left: 22%;
-}
-.footer-box p {
-    text-align: justify;
-}
-.footer-box2 h3 {
-    color: white;
+    padding: 10px;
     margin-bottom: 10px;
-    font-size: 20px;
-}
-.footer-box4 h3 {
-    padding-bottom: 8px;
-    font-size: 20px;
-}
-.footer-bottom-box {
-  text-align: center;
-}
-.footer_created {
-    text-align: center;
-}
-.menu-section {
-    margin-right: 0;
-    padding: 0;
-}
-.top-serch-box input {
-    border: none;
-    padding: 2px 34px 2px 13px;
-    border-radius: 40px;
-    outline: none;
-    width: 150px;
-}
-.top-serch-box {
-    position: relative;
-    top: -17px;
-    left: -5px;
-}
-.top-serch-box button {
-    background: #fdc500;
-    border: none;
-    color: #fff;
-    width: 26px;
-    height: 24px;
-    text-align: center;
-    border-radius: 50%;
-    position: absolute;
-    left: 124px;
-    top: 0px;
-}
-
-.top-no a h3 i {
-    width: 18px;
-    height: 18px;
-    text-align: center;
-    border: 2px solid;
-    line-height: 16px;
-    border-radius: 50px;
-    font-size: 8px;
-    position: relative;
-    top: 0px;
-}
-.top-no a h3 {
-    font-size: 14px;
-}
-.top-no {
-    position: absolute;
-    left: -162px;
-}
-.top-cart-sec {
-    position: absolute;
-    margin-left: 10px;
-    left: -26px;
-    top: 69px;
-}
-.top-cart-sec a {
-    font-size: 20px;
-    color: #fff;
-}
-.top-cart-sec i {
-    font-size: 18px;
-}
-.top-login-sec {
-   margin-left: 30px;
-    position: absolute;
-    right: 68px;
-    top: 75px;
-}
-.top-login-sec a {
-    font-size: 14px;
-}
-.logo {
-    position: relative;
-    top: -10px;
-    width: 100%;
-    height: auto;
-}
-#cssmenu #head-mobile {
-    padding: 0;
-}
-.top-cart-sec a span {
-    background: #d4a500;
-    font-size: 14px;
-    padding: 0 5px;
-    border-radius: 10px;
-    position: absolute;
-    top: 5px;
-    left: 19px;
-}
-/*.menu-bar-section {
-    float: inherit;
-}*/
-.banner-con button {
-    padding: 4px 4px;
-    font-size: 12px;
-}
-.banner-con h1 {
-    font-size: 16px;
-}
-.banner-con p {
-    width: 200px;
-    font-size: 12px;
-}
-.banner-con {
-    padding: 25px 20px;
-}
-.main-slider i.fa.fa-angle-left.custom-left.slick-arrow {
-    top: 44%;
-    position: absolute;
-    background: rgba(6, 45, 76, 0.68);
-    z-index: 99;
-    padding: 0px 0px;
-    border-radius: 50%;
-    color: #fff;
-    font-size: 25px;
-    width: 30px;
-    height: 30px;
-    text-align: center;
-    line-height: 30px;
-    left: 10px;
-}
-.main-slider i.fa.fa-angle-right.custom-right.slick-arrow{
-    top: 44%;
-    position: absolute;
-    background: rgba(6, 45, 76, 0.68);
-    z-index: 99;
-    padding: 0px 0px;
-    border-radius: 50%;
-    color: #fff;
-    font-size: 25px;
-    width: 30px;
-    height: 30px;
-    text-align: center;
-    line-height: 30px;
-    right: 10px;
-}
-
-.our_product_box {
-    padding-bottom: 40px;
-    padding: 15px;
-}
-.footer-box4 {
-    color: white;
-    text-align: left;
-}
-
-}
-
-
-
-@media screen and (min-width: 481px) and (max-width: 734px) {
-
-.inner-con {
-    padding: 0px 0;
-}
-.online-store-drop-btn select {
-    width: 100%;
-}
-
-.online-store-drop-btn {
-    text-align: left;
-    margin-top: 45px;
-    margin-bottom: 20px;
-}
-.blog-img-box img {
-    margin-bottom: 0px;
-}
-.blog-content-box {
-    margin-bottom: 30px;
-}
-.contact-text-inner p {
-    color: #fff;
-    font-size: 14px;
-    padding-left: 0px;
-    line-height: 25px;
-    text-align: left;
-}
-.cont-btn-box button {
-    background: #fdc500;
-    border: none;
-    border-radius: 8px;
-    padding: 10px 20px;
-    color: #fff;
-    font-weight: 600;
-    font-size: 14px;
-    margin-top: 20px;
-    outline: none;
-}
-
-.about-right-img img {
-    margin-top: 10px;
-    margin-bottom: 20px;
-}
-.about-text-box-heading {
-   padding: 10px 10px;
- 
-}
-.about-short-text {
-    padding-left: 50px;
-}
-.book-form-box form {
-    width: 100%;
-    margin: 0 auto;
-}
-.center-heading:before {
-    content: '';
-    position: absolute;
-    width: 60px;
-    height: 3px;
-    background: #fdc500;
-    bottom: -15px;
-    left: 37%;
-    right: 37%;
-}
-.product-tab-bxo ul li {
-    width: 50%;
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-.menu-bar-section {
-    float: left;
-    position: absolute;
-    top: 67px;
-    right: 0;
-    z-index: 9999;
-    width: 200%;
-}
-
-.desktop{
-    display: none;
-
-}
-.mobile{
-    display: block;
-}
-
-
-.main_hadding_h1 {
-    font-size: 25px;
-}
-.h-a-cont h4 {
-    line-height: 25px;
-    font-size: 16px;
-}
-.h-a-cont {
-    padding: 20px;
-    margin-bottom: 20px;
 }
 .h-img-box {
     position: initial;
@@ -1405,12 +644,12 @@ i.fa.fa-angle-right.custom-right.slick-arrow {
     padding: 2px 34px 2px 13px;
     border-radius: 40px;
     outline: none;
-    width: 187px;
+    width: 135px;
 }
 .top-serch-box {
     position: relative;
-    top: -13px;
-    left: 88px;
+    top: -19px;
+    left: -40px;
 }
 .top-serch-box button {
     background: #fdc500;
@@ -1421,10 +660,18 @@ i.fa.fa-angle-right.custom-right.slick-arrow {
     text-align: center;
     border-radius: 50%;
     position: absolute;
-    left: 161px;
+    left: 109px;
     top: 0px;
 }
-
+.button {
+    width: 55px;
+    height: 46px;
+    position: absolute;
+    right: -7px;
+    top: -95px;
+    cursor: pointer;
+    z-index: 12399994;
+}
 .top-no a h3 i {
     width: 18px;
     height: 18px;
@@ -1441,14 +688,13 @@ i.fa.fa-angle-right.custom-right.slick-arrow {
 }
 .top-no {
     position: absolute;
-    left: -27px;
-    top: 80px;
+    left: -162px;
 }
 .top-cart-sec {
     position: absolute;
     margin-left: 10px;
-    left: 117px;
-    top: 72px;
+    left: -26px;
+    top: 69px;
 }
 .top-cart-sec a {
     font-size: 20px;
@@ -1499,10 +745,10 @@ i.fa.fa-angle-right.custom-right.slick-arrow {
     font-size: 12px;
 }
 .banner-con {
-    padding: 25px 20px;
+    padding: 13px 89px;
 }
 .main-slider i.fa.fa-angle-left.custom-left.slick-arrow {
-    top: 44%;
+    top: 21%;
     position: absolute;
     background: rgba(6, 45, 76, 0.68);
     z-index: 99;
@@ -1517,7 +763,7 @@ i.fa.fa-angle-right.custom-right.slick-arrow {
     left: 10px;
 }
 .main-slider i.fa.fa-angle-right.custom-right.slick-arrow{
-    top: 44%;
+    top: 21%;
     position: absolute;
     background: rgba(6, 45, 76, 0.68);
     z-index: 99;
@@ -1532,55 +778,10 @@ i.fa.fa-angle-right.custom-right.slick-arrow {
     right: 10px;
 }
 
-.our_product_box {
-    padding-bottom: 40px;
-    padding: 15px;
-}
-.footer-box4 {
-    color: white;
-    text-align: left;
-}
+
 
 }
-
-
-
-
-
-
-@media screen and (min-width: 768px) and (max-width: 1020px) {
-.product-tab-bxo ul li {
-    width: 24.5%;
-    text-align: center;
-    border: 2px solid #fdc500;
-    float: left;
-    padding: 35px;
-}
-.contact-text-inner p {
-    color: #fff;
-    font-size: 19px;
-    padding-left: 15px;
-    line-height: 40px;
-    text-align: left;
-}
-.menu-bar-section {
- float: left;
-    position: absolute;
-    top: 120px;
-    right: 0;
-    z-index: 9999;
-    width: 200%;
-}
-.main-menu {
-    background: #062d4c;
-    display: flex;
-    height: 120px;
-}
-#cssmenu #head-mobile {
-    padding: 0px !important;
-
-}
-
+@media screen and (min-width: 768px) and (max-width: 1024px) {
 
 .h-img-box {
     position: initial;

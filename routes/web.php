@@ -17,7 +17,9 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 Route::match(['get','post'], '/', 'IndexController@index');
-
+Route::match(['get','post'], '/about', 'IndexController@about');
+Route::match(['get','post'], '/freeBuyersGuide', 'IndexController@fbg');
+Route::match(['get','post'], '/onlineStore', 'IndexController@onlineStore');
 Route::match(['get','post'], '/admin', 'AdminController@login');
 
 Auth::routes();
@@ -47,6 +49,9 @@ Route::group(['middleware'	=>	['auth']], function(){
 	Route::get('/admin/updateBannerStatus', 'BannerController@ubs');
 	// banner route ends here
 	Route::match(['get','post'], '/admin/addAttribute/{id}', 'ProductController@addAttribute');
+	Route::match(['get','post'], '/admin/deleteAttribute/{id}', 'ProductController@deleteAttribute');
+	Route::match(['get','post'], '/admin/editAttribute/{id}', 'ProductController@editAttribute');
+
 });
 
 Route::get('/logout', 'AdminController@logout');

@@ -198,7 +198,6 @@
                </div>
                
                <!-- Modal -->    
-
             </section>
             <!-- /.content -->
          </div>

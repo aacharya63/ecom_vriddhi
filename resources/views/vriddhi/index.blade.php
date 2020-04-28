@@ -1,4 +1,5 @@
 @extends('vriddhi.layouts.master')
+@section('title', 'Home')
 @section('content')
 
 <body>
@@ -267,25 +268,6 @@
   </div>
 </section>
 <!-------- resion section close ---------->
-<section>
-  <div class="container">
-    <div class="row">
-      <h2 class="main_hadding_h2 underline margin-bottom_50px">Our Partner</h2>
-      <div class="client-logo" >
-        <div class="slide"><img src="https://www.vridhisoftech.com/img/logo/1.png"></div>
-        <div class="slide"><img src="https://www.vridhisoftech.com/img/logo/2.png"></div>
-        <div class="slide"><img src="https://www.vridhisoftech.com/img/logo/3.png"></div>
-        <div class="slide"><img src="https://www.vridhisoftech.com/img/logo/4.png"></div>
-        <div class="slide"><img src="https://www.vridhisoftech.com/img/logo/6.png"></div>
-        <div class="slide"><img src="https://www.vridhisoftech.com/img/logo/7.png"></div>
-        <div class="slide"><img src="https://www.vridhisoftech.com/img/logo/8.png"></div>
-        <div class="slide"><img src="https://www.vridhisoftech.com/img/logo/9.png"></div>
-        <div class="slide"><img src="https://www.vridhisoftech.com/img/logo/10.png"></div>
-      </div>
-    </div>
-  </div>
-</section>
-<div class="clearfix"></div>
 
 </body>
 @endsection

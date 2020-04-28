@@ -12,4 +12,16 @@ class IndexController extends Controller
     	$product_data = Product::where(['status'=>1])->orderby('id', 'asc')->get();
     	return view('vriddhi.index')->with(compact('banner_data', 'product_data'));
     }
+
+    public function about(){
+    	return view('vriddhi.about');
+    }
+
+    public function fbg(){
+    	return view('vriddhi.freeBuyersGuide');
+    }
+
+    public function onlineStore(){
+    	return view('vriddhi.onlineStore');
+    }
 }

@@ -155,8 +155,7 @@ class ProductController extends Controller
         public function addAttribute(Request $request, $id=null)
         {
             if ($request->isMethod('post')) {
-                // kkkkkkkkkkkkkk
-                $this->validate($request,[
+            $this->validate($request,[
                 'sku' => 'required|min:5|max:35',
                 'size' => 'required|min:5|max:35',
                 'price' => 'required|numeric',
@@ -173,7 +172,6 @@ class ProductController extends Controller
                 'stock.required' => ' The Product attribute stock must be required.',
                 'stock.numeric' => 'The Product attribute stock field must be numeric.',
             ]);
-                // llllllllllllll
                 $data = $request->all();
                 foreach ($data['sku'] as $key => $value) {
                     if (!empty($value)) {
@@ -199,7 +197,24 @@ class ProductController extends Controller
                 Alert::success('Attributes saved successfully', 'Success Message');
                 return redirect('admin/addAttribute/'.$id)->with('success_msg', 'Attributes saved successfully');
             }
-            $product_data = Product::where(['id'=>$id])->first();
+            $product_data = Product::with('product_attributes')->where(['id'=>$id])->first();
             return view('admin.product.addAtribute')->with(compact('product_data'));
+        }
+
+        public function deleteAttribute(Request $request, $id=null){
+            $product_attribute_delete = ProductAttribute::where('id',$id)->delete();
+            Alert::success('Product Attribute deleted successfully', 'Success Message');
+            return redirect()->back();    
+        }
+
+        public function editAttribute(Request $request, $id=null){
+            if ($request->isMethod('post')) {
+                $data = $request->all();
+                foreach ($data['attr'] as $key => $value) {
+                    ProductAttribute::where(['id'=>$data['attr'][$key]])->update(['price'=>$data['price'][$key], 'sku'=>$data['sku'][$key], 'stock'=>$data['stock'][$key], 'size'=>$data['size'][$key]]);
+                }
+                Alert::success('Product Attribute updated successfully', 'Success Message');
+                return redirect()->back();
+            }
         }
 }

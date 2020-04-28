@@ -1,6 +1,6 @@
 <section class="main-menu">
   <div class="col-md-4 col-xs-12 logo-section">
-      <a href="index.html"><img src="{{ asset('front_assets/image/maximon-logo.png') }}" class="logo"></a>
+      <a href="{{ url('/') }}"><img src="{{ asset('front_assets/image/maximon-logo.png') }}" class="logo"></a>
   </div>
       <div class="col-md-8 col-xs-12 menu-section">
         <div class="menu-top-section">
@@ -37,8 +37,8 @@
             <div id="head-mobile"></div>
             <div class="button"></div>
             <ul>
-            <li class='active'><a href='#'>HOME</a></li>
-            <li><a href='#'>ABOUT</a></li>
+            <li class='active'><a href="{{ url('/') }}">HOME</a></li>
+            <li><a href="{{ url('about') }}">ABOUT</a></li>
             <li><a href='#'>FIND RADIOS BY</a>
                <ul>
                   <li><a href='#'>Product 1</a>
@@ -56,8 +56,8 @@
                </ul>
             </li>
             <li><a href='#'>RADIO HIRE</a></li>
-            <li><a href='#'>ONLINE STORE</a></li>
-            <li><a href='#'>FREE BUYER'S GUIDE</a></li>
+            <li><a href="{{ url('/onlineStore') }}">ONLINE STORE</a></li>
+            <li><a href="{{ url('/freeBuyersGuide') }}">FREE BUYER'S GUIDE</a></li>
             <li><a href='#'>LATEST NEWS & VIEWS</a></li>
             </ul>
             </nav>
