@@ -38,8 +38,8 @@
             <div class="button"></div>
             <ul>
             <li class='active'><a href="{{ url('/') }}">HOME</a></li>
-            <li><a href="{{ url('about') }}">ABOUT</a></li>
-            <li><a href='#'>FIND RADIOS BY</a>
+            <li><a href="{{ url('/about') }}">ABOUT</a></li>
+            <li><a href="{{ url('/findRadioBy') }}">FIND RADIOS BY</a>
                <ul>
                   <li><a href='#'>Product 1</a>
                      <ul>
@@ -55,10 +55,10 @@
                   </li>
                </ul>
             </li>
-            <li><a href='#'>RADIO HIRE</a></li>
+            <li><a href="{{ url('/radioHire') }}">RADIO HIRE</a></li>
             <li><a href="{{ url('/onlineStore') }}">ONLINE STORE</a></li>
             <li><a href="{{ url('/freeBuyersGuide') }}">FREE BUYER'S GUIDE</a></li>
-            <li><a href='#'>LATEST NEWS & VIEWS</a></li>
+            <li><a href="{{ url('/latestNews') }}">LATEST NEWS & VIEWS</a></li>
             </ul>
             </nav>
             </header>
