@@ -36,6 +36,8 @@ Route::get('/home', 'HomeController@index');
 Route::group(['middleware'	=>	['auth']], function(){
 	Route::match(['get','post'], '/admin/dashboard', 'AdminController@dashboard');
 	Route::match(['get','post'], '/admin/addProduct', 'ProductController@add');
+	Route::match(['get','post'], '/admin/addImages/{id}', 'ProductController@addImg');
+	Route::match(['get'], '/admin/delImages/{id}', 'ProductController@delImg');
 	Route::match(['get','post'], '/admin/viewProduct', 'ProductController@view');
 	Route::match(['get','post'], '/admin/editProduct/{id}', 'ProductController@edit');
 	Route::match(['get','post'], '/admin/deleteProduct/{id}', 'ProductController@delete');

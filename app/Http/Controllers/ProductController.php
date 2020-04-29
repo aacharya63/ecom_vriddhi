@@ -5,6 +5,7 @@ Use Alert;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
+use App\ProductImages;
 use App\ProductAttribute;
 use Image;
 //use Illuminate\Support\Facades\Input;
@@ -216,5 +217,51 @@ class ProductController extends Controller
                 Alert::success('Product Attribute updated successfully', 'Success Message');
                 return redirect()->back();
             }
+        }
+
+        public function addImg(Request $request, $id=null)
+        {
+            $product_data = Product::where(['id'=>$id])->first();
+            if ($request->isMethod('post')) {
+            $this->validate($request,[
+                'img' => 'required',
+            ],[
+                'img.required' => 'The Product Image field is required.',
+              ]);
+                $data = $request->all();
+                if ($request->hasfile('img')) {
+                    $file   =   Request('img');
+                
+                    foreach ($file as $file) {
+                        $pi =   new ProductImages;
+                        $extension  =   $file->getClientOriginalExtension();
+                        $filename   =   rand(100,9999).'.'.$extension;
+                        $img_path   =   'uploads/products/'.$filename;
+                        Image::make($file)->resize(500,500)->save($img_path);
+                        $pi->image   =   $filename;
+                        $pi->product_id = $data['hidden_product_id'];
+                        $pi->save();
+                    }
+                
+                Alert::success('Product Image saved successfully', 'Success Message');
+                return redirect('admin/addImages/'.$id)->with('success_msg', 'Product Image saved successfully');
+            }
+
+                
+            }
+            $product_img = ProductImages::where(['product_id'=>$id])->get();
+            return view('admin.product.addProductImg')->with(compact('product_img', 'product_data'));
+        }
+
+        public function delImg(Request $request, $id=null)
+        {
+            $productImg_delete = ProductImages::where('id',$id)->first();
+            $imgPath = 'uploads/products/';
+            if (file_exists($imgPath.$productImg_delete->image)) {
+                unlink($imgPath.$productImg_delete->image);
+            }
+            ProductImages::where('id',$id)->delete();
+            Alert::success('Product Images deleted successfully', 'Success Message');
+            return redirect()->back()->with('fls_suc_msg_dp', 'Product Image deleted successfully');
         }
 }

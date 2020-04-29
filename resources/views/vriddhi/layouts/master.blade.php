@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="{{ asset('front_assets/css/style.css') }}">
   <link rel="stylesheet" href="{{ asset('front_assets/css/aos.css') }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">  
 </head>
 <body>
 
@@ -220,7 +220,18 @@ $("#cssmenu").menumaker({
   $(".home-menu").toggle();
 });
 </script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
 
+<script type="text/javascript">
+
+    $('.date').datepicker({  
+
+       format: 'mm-dd-yyyy'
+
+     });  
+
+</script>
     
 </body>
 

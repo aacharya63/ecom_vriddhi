@@ -77,13 +77,13 @@
 
               <div class="col-md-6 {{ $errors->has('start_date') ? 'has-error' : '' }}">
                 <label>Hire Start Date*</label>
-                <input type="text" name="start_date">
+                <input type="text" name="start_date" class="date">
                 <span class="text-danger">{{ $errors->first('start_date') }}</span>
               </div>
 
               <div class="col-md-6 {{ $errors->has('end_date') ? 'has-error' : '' }}">
                 <label>Hire End Date*</label>
-                <input type="text" name="end_date">
+                <input type="text" name="end_date" class="date">
                 <span class="text-danger">{{ $errors->first('end_date') }}</span>
               </div>
 
@@ -125,5 +125,6 @@
     </div>
   </section>
   <div class="clearfix"></div>
+  
 </body>
 @endsection
