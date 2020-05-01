@@ -25,9 +25,15 @@
               </div>
             </li>
             <li>
+              @if(empty(Auth::check()))
               <div class="top-login-sec">
-                <a href="#">Login <i class="fa fa-sign-in" aria-hidden="true"></i></a>
+                <a href="{{ url('login-register') }}">Login <i class="fa fa-sign-in" aria-hidden="true"></i></a>
               </div>
+              @else
+              <div class="top-login-sec">
+                <a href="{{ url('account') }}">Account <i class="fa fa-sign-in" aria-hidden="true"></i></a>
+              </div>
+              @endif
             </li>
           </ul>
         </div>

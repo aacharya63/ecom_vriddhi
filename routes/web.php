@@ -26,7 +26,9 @@ Route::match(['get','post'], '/findRadioBy', 'IndexController@frb');
 Route::match(['get','post'], '/contact', 'IndexController@contact');
 Route::match(['get','post'], '/userContact', 'IndexController@userContact');
 Route::match(['get','post'], '/admin', 'AdminController@login');
-
+// user login and registration route
+Route::match(['get'], '/login-register', 'FrontUserController@lr_front');
+Route::match(['post'], '/userRegister', 'FrontUserController@ur');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
