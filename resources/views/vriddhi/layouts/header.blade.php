@@ -32,6 +32,10 @@
               @else
               <div class="top-login-sec">
                 <a href="{{ url('account') }}">Account <i class="fa fa-sign-in" aria-hidden="true"></i></a>
+                <a href="{{ url('userLogout') }}">logout <i class="fa fa-sign-in" aria-hidden="true"></i></a>
+              </div>
+              <div class="top-login-sec">
+                
               </div>
               @endif
             </li>

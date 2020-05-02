@@ -26,9 +26,12 @@ Route::match(['get','post'], '/findRadioBy', 'IndexController@frb');
 Route::match(['get','post'], '/contact', 'IndexController@contact');
 Route::match(['get','post'], '/userContact', 'IndexController@userContact');
 Route::match(['get','post'], '/admin', 'AdminController@login');
+
 // user login and registration route
 Route::match(['get'], '/login-register', 'FrontUserController@lr_front');
 Route::match(['post'], '/userRegister', 'FrontUserController@ur');
+Route::match(['get'], '/userLogout', 'FrontUserController@ul');
+Route::match(['post'], '/userLogin', 'FrontUserController@user_login');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
@@ -36,6 +39,8 @@ Route::get('/home', 'HomeController@index');
 
 
 Route::group(['middleware'	=>	['auth']], function(){
+	Route::match(['get','post'], '/admin/adminEditProfile/{id}', 'AdminController@admin_edit_profile');
+	Route::match(['get','post'], '/admin/changePassword/{id}', 'AdminController@changePassword');
 	Route::match(['get','post'], '/admin/dashboard', 'AdminController@dashboard');
 	Route::match(['get','post'], '/admin/addProduct', 'ProductController@add');
 	Route::match(['get','post'], '/admin/addImages/{id}', 'ProductController@addImg');
@@ -63,4 +68,4 @@ Route::group(['middleware'	=>	['auth']], function(){
 
 });
 
-Route::get('/logout', 'AdminController@logout');
+Route::get('/admin/logout', 'AdminController@logout');

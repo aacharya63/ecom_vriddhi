@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('mobile')->nullable();
             $table->string('email')->unique();
-
+            $table->string('img')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->tinyInteger('isAdmin')->default('0');
             $table->string('password');

@@ -44,6 +44,13 @@
         <strong>Error!</strong> {{ Session::get('fls_err_msg') }}
       </div>
       @endif
+      @if(Session::has('fls_ul_msg'))
+      <div class="alert alert-success" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Success!</strong> {{ Session::get('fls_ul_msg') }}
+      </div>
+      @endif
+      
       <div class="row">
         <div class="col-md-12 text-center">
           <div class="center-heading">
@@ -108,13 +115,13 @@
           </div>
         </div>
         <div class="book-form-box">
-          <form method="post" action="#">
+          <form method="post" action="{{ url('userLogin') }}">
             @csrf
             <div class="row">
               <div class="col-md-6 {{ $errors->has('email') ? 'has-error' : '' }}">
                 <label>Email*</label>
-                <input type="email" name="uemail" id="uemail">
-                <span class="text-danger">{{ $errors->first('uemail') }}</span>
+                <input type="email" name="email" id="email">
+                <span class="text-danger">{{ $errors->first('email') }}</span>
               </div>
 
               <div class="col-md-6 {{ $errors->has('password') ? 'has-error' : '' }}">

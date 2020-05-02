@@ -45,6 +45,11 @@
       <!-- Theme style rtl -->
       <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
       <!--<link href="assets/dist/css/stylecrm-rtl.css" rel="stylesheet" type="text/css"/>-->
+      <!-- End Global Mandatory Style
+         =====================================================================-->
+      <!-- Start Theme Layout Style
+         =====================================================================-->
+      <!-- Theme style -->
       <!-- End Theme Layout Style
          =====================================================================-->
    </head>
@@ -82,8 +87,7 @@
          =====================================================================-->
       <!-- Start Page Lavel Plugins
          =====================================================================-->
-      <!-- ChartJs JavaScript -->
-      <script src="{{ asset('admin_assets/plugins/chartJs/Chart.min.js') }}" type="text/javascript"></script>
+      
       <!-- Counter js -->
       <script src="{{ asset('admin_assets/plugins/counterup/waypoints.js') }}" type="text/javascript"></script>
       <script src="{{ asset('admin_assets/plugins/counterup/jquery.counterup.min.js') }}" type="text/javascript"></script>
@@ -211,87 +215,13 @@
      
   });
       </script>
-      <script>
-         function dash() {
-         // single bar chart
-         var ctx = document.getElementById("singelBarChart");
-         var myChart = new Chart(ctx, {
-         type: 'bar',
-         data: {
-         labels: ["Sun", "Mon", "Tu", "Wed", "Th", "Fri", "Sat"],
-         datasets: [
-         {
-         label: "My First dataset",
-         data: [40, 55, 75, 81, 56, 55, 40],
-         borderColor: "rgba(0, 150, 136, 0.8)",
-         width: "1",
-         borderWidth: "0",
-         backgroundColor: "rgba(0, 150, 136, 0.8)"
-         }
-         ]
-         },
-         options: {
-         scales: {
-         yAxes: [{
-             ticks: {
-                 beginAtZero: true
-             }
-         }]
-         }
-         }
-         });
-               //monthly calender
-               $('#m_calendar').monthly({
-                 mode: 'event',
-                 //jsonUrl: 'events.json',
-                 //dataType: 'json'
-                 xmlUrl: 'events.xml'
-             });
-         
-         //bar chart
-         var ctx = document.getElementById("barChart");
-         var myChart = new Chart(ctx, {
-         type: 'bar',
-         data: {
-         labels: ["January", "February", "March", "April", "May", "June", "July", "august", "september","october", "Nobemver", "December"],
-         datasets: [
-         {
-         label: "My First dataset",
-         data: [65, 59, 80, 81, 56, 55, 40, 65, 59, 80, 81, 56],
-         borderColor: "rgba(0, 150, 136, 0.8)",
-         width: "1",
-         borderWidth: "0",
-         backgroundColor: "rgba(0, 150, 136, 0.8)"
-         },
-         {
-         label: "My Second dataset",
-         data: [28, 48, 40, 19, 86, 27, 90, 28, 48, 40, 19, 86],
-         borderColor: "rgba(51, 51, 51, 0.55)",
-         width: "1",
-         borderWidth: "0",
-         backgroundColor: "rgba(51, 51, 51, 0.55)"
-         }
-         ]
-         },
-         options: {
-         scales: {
-         yAxes: [{
-             ticks: {
-                 beginAtZero: true
-             }
-         }]
-         }
-         }
-         });
-             //counter
-             $('.count-number').counterUp({
-                 delay: 10,
-                 time: 5000
-             });
-         }
-         dash();         
-      </script>
+      
       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/js/bootstrap-toggle.js" type="text/javascript"></script>
       @include('sweetalert::alert')
+      <script type="text/javascript">
+        $('li a').click(function(e) {
+            $(this).closest("li").find("[class^='ul_submenu']").slideToggle();
+        });
+      </script>
    </body>
    </html>

@@ -232,7 +232,7 @@ $("#cssmenu").menumaker({
      });  
 
 </script>
-    
+    @include('sweetalert::alert')
 </body>
 
 </html>
