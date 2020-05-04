@@ -1,14 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-Use Alert;
+use Alert;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
 use App\ProductImages;
 use App\ProductAttribute;
 use Image;
-//use Illuminate\Support\Facades\Input;
+
 
 class ProductController extends Controller
 {

@@ -85,6 +85,7 @@
       <script src="{{ asset('admin_assets/dist/js/custom.js') }}" type="text/javascript"></script>
       <!-- End Core Plugins
          =====================================================================-->
+      <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
       <!-- Start Page Lavel Plugins
          =====================================================================-->
       
@@ -223,5 +224,6 @@
             $(this).closest("li").find("[class^='ul_submenu']").slideToggle();
         });
       </script>
+      <script>tinymce.init({selector:'textarea'});</script>
    </body>
    </html>

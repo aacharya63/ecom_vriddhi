@@ -7,6 +7,7 @@ Use Alert;
 use App\UserContact;
 use App\Banner;
 use App\Product;
+use App\Blog;
 class IndexController extends Controller
 {
     public function index(){
@@ -31,8 +32,9 @@ class IndexController extends Controller
     	return view('vriddhi.radioHire');
     }
 
-    public function ln(){
-    	return view('vriddhi.latestNews');
+    public function ln(Request $request){
+        $blog_data = Blog::paginate(3);
+        return view('vriddhi.latestNews')->with(compact('blog_data'));
     }
 
     public function frb(){

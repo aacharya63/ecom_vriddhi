@@ -40,6 +40,20 @@
             </a>
             
          </li>
+         <!-- pages -->
+         <li class="treeview">
+            <a href="#">
+            <i class="fa fa-product-hunt"></i><span>Blogs</span>
+            <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+            </span>
+            </a>
+            <ul class="treeview-menu">
+               <li><a href="{{ url('admin/addBlog') }}">Add new Blog</a></li>
+               <li><a href="{{ url('admin/viewblog') }}">View all blogs</a></li>
+            </ul>
+         </li>
+         <!-- pages ends -->
       </ul>
    </div>
    <!-- /.sidebar -->

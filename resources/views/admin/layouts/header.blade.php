@@ -29,7 +29,12 @@
             <!-- user -->
             <li class="submenu">
                <a href="#">
-               <img src="{{ asset('admin_assets/dist/img/avatar5.png') }}" class="img-circle" width="45" height="45" alt="user">
+                  @if(!empty(Auth::user()->img))
+                  <img src="{{ url('uploads/profile/'.Auth::user()->img) }}" class="img-circle" width="45" height="45" alt="{{ Auth::user()->name }}">
+                  @else
+                  <img src="{{ asset('front_assets/image/maximon-logo.png') }}" class="img-circle" width="45" height="45" alt="user">
+                  @endif
+               
                </a>
                <ul class="ul_submenu dropdown-menu" style="display:none">
                   <li>
