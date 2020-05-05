@@ -69,6 +69,10 @@ Route::group(['middleware'	=>	['auth']], function(){
 	Route::match(['get','post'], '/admin/viewBlog/', 'BlogController@view');
 	Route::match(['get','post'], '/admin/editBlog/{get_id}', 'BlogController@editBlog');
 	Route::match(['get','post'], '/admin/deleteBlog/{get_id}', 'BlogController@deleteBlog');
+	// pages
+	Route::resource('/admin/page', 'FrontPagesController');
+	Route::resource('/admin/create', 'FrontPagesController');
+	Route::resource('/admin/store', 'FrontPagesController');
 
 });
 

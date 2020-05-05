@@ -40,7 +40,7 @@
             </a>
             
          </li>
-         <!-- pages -->
+         <!-- blog -->
          <li class="treeview">
             <a href="#">
             <i class="fa fa-product-hunt"></i><span>Blogs</span>
@@ -52,6 +52,22 @@
                <li><a href="{{ url('admin/addBlog') }}">Add new Blog</a></li>
                <li><a href="{{ url('admin/viewblog') }}">View all blogs</a></li>
             </ul>
+         </li>
+         <!-- blog ends -->
+         <!-- pages -->
+         <li class="treeview">
+            <a href="{{ url('admin/page') }}">
+            <i class="fa fa-product-hunt"></i><span>Pages</span>
+            <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+            </span>
+            </a>
+            <!-- <ul class="treeview-menu">
+               <li><a href="{{ url('admin/editAbout') }}">creat</a></li>
+               <li><a href="{{ url('admin/findRadioBy') }}">Find radio by</a></li>
+               <li><a href="{{ url('admin/radioHire') }}">Radio Hire</a></li>
+               <li><a href="{{ url('admin/Free Buires Guide') }}">Free Buires Guide</a></li>
+            </ul> -->
          </li>
          <!-- pages ends -->
       </ul>

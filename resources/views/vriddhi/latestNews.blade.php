@@ -51,7 +51,7 @@
          <div class="row">
             <div class="col-md-4 col-sm-4">
                <div class="blog-img-box">
-                  <img src="{{ url('uploads/blogs/'.$bd->image) }}" style="width: 100%">
+                  <img src="{{ asset('uploads/blogs/'.$bd->image) }}" style="width: 100%">
                </div>
             </div>
             <div class="col-md-8 col-sm-8">
