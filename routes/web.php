@@ -73,7 +73,7 @@ Route::group(['middleware'	=>	['auth']], function(){
 	Route::resource('/admin/page', 'FrontPagesController');
 	Route::resource('/admin/create', 'FrontPagesController');
 	Route::resource('/admin/store', 'FrontPagesController');
-
+	Route::get('/admin/updatePageStatus', 'FrontPagesController@ups');
 });
 
 Route::get('/admin/logout', 'AdminController@logout');

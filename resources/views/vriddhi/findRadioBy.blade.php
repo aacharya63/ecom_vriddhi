@@ -1,17 +1,18 @@
 @extends('vriddhi.layouts.master')
-@section('title', 'Products')
+@section('title', 'Find Radio By')
 @section('content')
 
 <body>
   <div class="clearfix"></div>
   <section class="inner-banner-sec">
-    <div class="inner-baner">
-      <img src="{{ asset('front_assets/image/inner-banner.jpg') }}" style="width: 100%">
-    </div>
+  <div class="inner-baner">
+        
+    <img src="{{ url('front_assets/image/inner-banner.jpg') }}" style="width: 100%">
+  </div>
 
-  </section>
+</section>
 
-  <section class="inner-con">
+<section class="inner-con">
   <div class="container">
    
   <div class="row">
@@ -42,12 +43,25 @@
       <div class="col-md-12">
         <div class="product-tab-bxo">
           <ul class="list-inline">
-            <li class="active-pro"><a href="#">CCTV SOLUTIONS</a></li>
-            <li><a href="#">CCTV SOLUTIONS</a></li>
-            <li><a href="#">CCTV SOLUTIONS</a></li>
-            <li><a href="#">CCTV SOLUTIONS</a></li>
-            <li><a href="#">CCTV SOLUTIONS</a></li>
-            <li><a href="#">CCTV SOLUTIONS</a></li>
+            <?php 
+
+                $isFirst = true;
+
+                $i=1;   
+
+                foreach ( $category_data as $cd ):
+                $cat_name = $cd->name;
+                if($i==1)
+                {
+                        echo '<li class="active-pro"><a href="#">' . $cat_name . '</a></li>';
+                }
+                else
+                {
+                        echo '<li><a href="#">' . $cat_name . '</a></li>';
+                }
+                    $i++;
+                  endforeach;
+            ?>
           </ul>
         </div>
       </div>
@@ -56,7 +70,7 @@
       <div class="col-md-3 col-sm-6">
         <div class="new-product-box">
           <div class="new-p-img">
-            <img src="{{ asset('front_assets/image/Walki-Talki-2.jpg') }}" style="width: 100%;">
+            <img src="image/Walki-Talki-2.jpg" style="width: 100%;">
           </div>
           <div class="new-p-cont">
             <p>Pronto PTZ Max CCTV Systems</p>
@@ -68,7 +82,7 @@
       <div class="col-md-3 col-sm-6">
         <div class="new-product-box">
           <div class="new-p-img">
-            <img src="{{ asset('front_assets/image/Walki-Talki-2.jpg') }}" style="width: 100%;">
+            <img src="image/Walki-Talki-2.jpg" style="width: 100%;">
           </div>
           <div class="new-p-cont">
             <p>Pronto PTZ Max CCTV Systems</p>
@@ -80,7 +94,7 @@
       <div class="col-md-3 col-sm-6">
         <div class="new-product-box">
           <div class="new-p-img">
-            <img src="{{ asset('front_assets/image/Walki-Talki-2.jpg') }}" style="width: 100%;">
+            <img src="image/Walki-Talki-2.jpg" style="width: 100%;">
           </div>
           <div class="new-p-cont">
             <p>Pronto PTZ Max CCTV Systems</p>
@@ -92,7 +106,7 @@
       <div class="col-md-3 col-sm-6">
         <div class="new-product-box">
           <div class="new-p-img">
-            <img src="{{ asset('front_assets/image/Walki-Talki-2.jpg') }}" style="width: 100%;">
+            <img src="image/Walki-Talki-2.jpg" style="width: 100%;">
           </div>
           <div class="new-p-cont">
             <p>Pronto PTZ Max CCTV Systems</p>
@@ -103,67 +117,6 @@
     </div>
   </div>
 </section>
-
-
-  <section class="book-form-sec">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 text-center">
-          <div class="center-heading">
-            <h2>Book a Hire</h2>
-          <p>or ask for more information</p>
-          </div>
-        </div>
-        <div class="book-form-box">
-          <form>
-            <div class="row">
-              <div class="col-md-6">
-                <label>Name*</label>
-                <input type="text" name="name">
-              </div>
-              <div class="col-md-6">
-                <label>Conmpany*</label>
-                <input type="text" name="c-name">
-              </div>
-
-              <div class="col-md-6">
-                <label>Email*</label>
-                <input type="text" name="email">
-              </div>
-
-              <div class="col-md-6">
-                <label>Phone*</label>
-                <input type="text" name="phone">
-              </div>
-
-              <div class="col-md-6">
-                <label>Hire Start Date*</label>
-                <input type="text" name="start-d">
-              </div>
-
-              <div class="col-md-6">
-                <label>Hire End Date*</label>
-                <input type="text" name="end-d">
-              </div>
-
-              <div class="col-md-6">
-                <label>Postal Address*</label>
-                <textarea></textarea>
-              </div>
-
-              <div class="col-md-6">
-                <label>Extra Information*</label>
-                <textarea></textarea>
-              </div>
-              <div class="col-md-12 text-center margin-top-30">
-                <button class="custom-btn">Submit</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <section class="inner-page-cont">
     <div class="container">

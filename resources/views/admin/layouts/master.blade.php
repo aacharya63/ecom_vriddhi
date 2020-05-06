@@ -177,6 +177,30 @@
           })
         })
       </script>
+      <!-- page toggle -->
+      <script type="text/javascript">
+        $(function() {
+          $('.toggle-class-page').change(function() {
+              var status = $(this).prop('checked') == true ? 1 : 0; 
+              var _id = $(this).data('id'); 
+               
+              $.ajax({
+                  type: "GET",
+                  dataType: "json",
+                  url: '/admin/updatePageStatus',
+                  data: {'status': status, id: _id},
+                  success: function(data){
+                    console.log(data.success)
+                    $('#status_success_page').show();
+                    setTimeout(function(){
+                       $('#status_success_page').fadeOut('slow');
+                    }, 3000);
+                  }
+              });
+          })
+        })
+      </script>
+      <!-- page toggle ends -->
       <!-- add remove fields -->
       <script type="text/javascript">
         $(document).ready(function(){

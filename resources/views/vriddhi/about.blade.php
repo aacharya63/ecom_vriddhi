@@ -8,12 +8,24 @@
 <div class="clearfix"></div>
 <section class="inner-banner-sec">
   <div class="inner-baner">
-    <img src="{{ asset('front_assets/image/inner-banner.jpg') }}" style="width: 100%">
+    @if(!empty($FrontPages))
+    @foreach($FrontPages as $fp)    
+    <img src="{{ url('uploads/frontPages/'.$fp->header_img) }}" style="width: 100%">
+    @endforeach
+    @else
+    <img src="{{ url('front_assets/image/inner-banner.jpg') }}" style="width: 100%">
+    @endif
   </div>
 
 </section>
 
-
+@if(!empty($FrontPages))
+@foreach($FrontPages as $fp)
+{!!html_entity_decode($fp->description)!!}
+@endforeach
+@else
+<h1 class="text-center text-danger">Content Not Available</h1>
+@endif
 
 <section class="inner-page-cont">
   <div class="container">

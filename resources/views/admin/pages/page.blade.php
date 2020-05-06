@@ -20,6 +20,8 @@
                <h1>All Page</h1>
             </div>
          </section>
+         <span class="text-success text-center status_success_class" id="status_success_page" style="display: none;"><h1>Status updated successfully</h1></span>
+         
          <!-- Main content -->
          <section class="content">
             <div class="row">
@@ -51,7 +53,9 @@
                               <td>{{ $fd->slug }}</td>
                               <td>{{ $fd->link_url }}</td>
                               <td>{{ $fd->header_img }}</td>
-                              <td>{{ $fd->status }}</td>
+                              <td>
+                                <input data-id="{{$fd->id}}" class="toggle-class-page" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $fd->status ? 'checked' : '' }}>
+                              </td>
                               <!-- <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td> -->
                               <td>
                               <form action="{{ route('page.destroy',$fd->id) }}" method="POST">

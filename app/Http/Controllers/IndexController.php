@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 Use Alert;
+use App\FrontPages;
+use App\Category;
 use App\UserContact;
 use App\Banner;
 use App\Product;
@@ -17,11 +19,13 @@ class IndexController extends Controller
     }
 
     public function about(){
-    	return view('vriddhi.about');
+        $FrontPages = FrontPages::where(['id'=>1,'status'=>1])->orderby('id', 'asc')->get();
+        return view('vriddhi.about')->with(compact('FrontPages'));
     }
 
     public function fbg(){
-    	return view('vriddhi.freeBuyersGuide');
+        $FrontPages = FrontPages::where(['id'=>4,'status'=>1])->orderby('id', 'asc')->get();
+        return view('vriddhi.freeBuyersGuide')->with(compact('FrontPages'));
     }
 
     public function onlineStore(){
@@ -29,7 +33,8 @@ class IndexController extends Controller
     }
 
     public function rh(){
-    	return view('vriddhi.radioHire');
+    	$FrontPages = FrontPages::where(['id'=>3,'status'=>1])->orderby('id', 'asc')->get();
+        return view('vriddhi.radioHire')->with(compact('FrontPages'));
     }
 
     public function ln(Request $request){
@@ -38,7 +43,8 @@ class IndexController extends Controller
     }
 
     public function frb(){
-    	return view('vriddhi.findRadioBy');
+        $category_data = Category::where(['status'=>1])->orderby('id', 'asc')->get();
+        return view('vriddhi.findRadioBy')->with(compact('category_data'));
     }
 
     public function contact(){

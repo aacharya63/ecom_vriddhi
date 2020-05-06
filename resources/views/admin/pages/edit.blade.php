@@ -51,7 +51,7 @@
                               </div>
                               <div class="form-group {{ $errors->has('img') ? 'has-error' : '' }}">
                                     <label>Header Image upload</label>
-                                    <input type="file" name="img" id="img" class="form-control">
+                                    <input type="file" name="img" id="img" class="form-control" required="required">
                                     <input type="hidden" name="current_img" id="current_img" class="form-control" value="{{ $fp_data->img }}">
                                     
                                     <span class="text-danger">{{ $errors->first('img') }}</span>

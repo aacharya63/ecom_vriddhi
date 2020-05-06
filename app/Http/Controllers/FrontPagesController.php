@@ -169,4 +169,13 @@ class FrontPagesController extends Controller
         Alert::success('Page information deleted successfully', 'Success Message');
         return redirect()->route('page.index');
     }
+
+    public function ups(Request $request)
+    {
+        $fp = FrontPages::find($request->id);
+        $fp->status = $request->status;
+        $fp->save();
+    
+        return response()->json(['success'=>'Status change successfully.']);
+    }
 }
