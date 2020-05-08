@@ -6,7 +6,7 @@
 <?php } ?>
 <footer class="main-footer">
    <strong>Copyright &copy; <?php
-   auto_copyright();?> <a href="#">Maximoon Solution</a>.</strong> All rights reserved.
+   auto_copyright();?> <a href="#">Maximon Solution</a>.</strong> All rights reserved.
 </footer>
 <script src="{{ asset('admin_assets/plugins/jQuery/jquery-1.12.4.min.js') }}" type="text/javascript"></script>
         <!-- bootstrap js -->

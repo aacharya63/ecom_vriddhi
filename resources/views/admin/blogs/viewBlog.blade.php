@@ -8,9 +8,7 @@
          <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <section class="content-header">
-               <div class="header-icon">
-                  <i class="fa fa-eye"></i>
-               </div>
+               
                <div class="header-title">
                   <h1>View Blogs</h1>
                   
@@ -21,7 +19,7 @@
             <section class="content">
                <div class="row">
                   <div class="col-sm-12">
-                     <div class="panel panel-bd lobidrag">
+                     <div class="panel panel-bd">
                         <div class="panel-heading">
                            <div class="btn-group" id="buttonexport">
                               <a href="#">

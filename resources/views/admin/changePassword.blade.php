@@ -8,9 +8,7 @@
          <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <section class="content-header">
-               <div class="header-icon">
-                  <i class="fa fa-product-hunt"></i>
-               </div>
+               
                <div class="header-title">
                   <h1>Change Password</h1>
                   <small>Change Password</small>
@@ -27,7 +25,7 @@
                           
                            <form action="{{ url('admin/changePassword/'.$apd->id) }}" method="post" enctype="multipart/form-data">
                            	@csrf
-                           	<div class="col-sm-6">
+                           	
                               
                               <div class="form-group {{ $errors->has('current_password') ? 'has-error' : '' }}">
                                  <label> Current Password</label>
@@ -45,10 +43,8 @@
                                  <span class="text-danger">{{ $errors->first('new_confirm_password') }}</span>
                               </div>
                               
-                            </div>
-                           	<div class="col-sm-6">
-                               
-                            </div>
+                            
+                           	
                           <div class="reset-button">
                              <button type="reset" class="btn btn-warning">Reset</button>
                              <button type="submit" class="btn btn-success">Update Password</button>

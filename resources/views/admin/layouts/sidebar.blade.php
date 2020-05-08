@@ -23,7 +23,7 @@
          </li>
          <li class="treeview">
             <a href="#">
-            <i class="fa fa-product-hunt"></i><span>Category</span>
+            <i class="fa fa-list-alt"></i><span>Category</span>
             <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -33,41 +33,47 @@
                <li><a href="{{ url('admin/viewCategory') }}">View category</a></li>
             </ul>
          </li>
-         <li>
-            <a href="{{ url('admin/banner') }}">
-            <i class="fa fa-product-hunt"></i><span>Banner</span>
-            
-            </a>
-            
-         </li>
+         
          <!-- blog -->
          <li class="treeview">
             <a href="#">
-            <i class="fa fa-product-hunt"></i><span>Blogs</span>
+            <i class="fa fa-newspaper-o"></i><span>Blogs</span>
             <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
             </span>
             </a>
             <ul class="treeview-menu">
-               <li><a href="{{ url('admin/addBlog') }}">Add new Blog</a></li>
-               <li><a href="{{ url('admin/viewblog') }}">View all blogs</a></li>
+               <li><a href="{{ url('admin/viewBlog') }}">All blogs</a></li>
+               <li><a href="{{ url('admin/addBlog') }}">Add new</a></li>
+               
             </ul>
          </li>
          <!-- blog ends -->
          <!-- pages -->
          <li class="treeview">
-            <a href="{{ url('admin/page') }}">
-            <i class="fa fa-product-hunt"></i><span>Pages</span>
+            <a href="#">
+            <i class="fa fa-file"></i><span>Pages</span>
             <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
             </span>
             </a>
-            <!-- <ul class="treeview-menu">
-               <li><a href="{{ url('admin/editAbout') }}">creat</a></li>
-               <li><a href="{{ url('admin/findRadioBy') }}">Find radio by</a></li>
-               <li><a href="{{ url('admin/radioHire') }}">Radio Hire</a></li>
-               <li><a href="{{ url('admin/Free Buires Guide') }}">Free Buires Guide</a></li>
-            </ul> -->
+            <ul class="treeview-menu">
+               <li>
+            <a href="{{ url('admin/banner') }}">
+            <span>Banner</span>
+            
+            </a>
+            
+         </li>
+         <li>
+            <a href="{{ url('admin/page') }}">
+            <span>View Pages</span>
+            
+            </a>
+            
+         </li>
+              
+            </ul>
          </li>
          <!-- pages ends -->
       </ul>

@@ -8,12 +8,10 @@
          <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <section class="content-header">
-               <div class="header-icon">
-                  <i class="fa fa-eye"></i>
-               </div>
+               
                <div class="header-title">
                   <h1>View Category</h1>
-                  <small>Category list</small>
+                  
                </div>
             </section>
             @if(Session::has('fls_suc_msg_cat'))
@@ -27,7 +25,7 @@
             <section class="content">
                <div class="row">
                   <div class="col-sm-12">
-                     <div class="panel panel-bd lobidrag">
+                     <div class="panel panel-bd">
                         <div class="panel-heading">
                            <div class="btn-group" id="buttonexport">
                               <a href="#">
@@ -43,58 +41,7 @@
                                  <a class="btn btn-add" href="{{ url('admin/addCategory') }}"> <i class="fa fa-plus"></i> Add Category
                                  </a>  
                               </div>
-                              <button class="btn btn-exp btn-sm dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> Export Table Data</button>
-                              <!-- <ul class="dropdown-menu exp-drop" role="menu">
-                                 <li>
-                                    <a href="#" onclick="$('#dataTableExample1').tableExport({type:'json',escape:'false'});"> 
-                                    <img src="assets/dist/img/json.png" width="24" alt="logo"> JSON</a>
-                                 </li>
-                                 <li>
-                                    <a href="#" onclick="$('#dataTableExample1').tableExport({type:'json',escape:'false',ignoreColumn:'[2,3]'});">
-                                    <img src="assets/dist/img/json.png" width="24" alt="logo"> JSON (ignoreColumn)</a>
-                                 </li>
-                                 <li><a href="#" onclick="$('#dataTableExample1').tableExport({type:'json',escape:'true'});">
-                                    <img src="assets/dist/img/json.png" width="24" alt="logo"> JSON (with Escape)</a>
-                                 </li>
-                                 <li class="divider"></li>
-                                 <li><a href="#" onclick="$('#dataTableExample1').tableExport({type:'xml',escape:'false'});">
-                                    <img src="assets/dist/img/xml.png" width="24" alt="logo"> XML</a>
-                                 </li>
-                                 <li><a href="#" onclick="$('#dataTableExample1').tableExport({type:'sql'});"> 
-                                    <img src="assets/dist/img/sql.png" width="24" alt="logo"> SQL</a>
-                                 </li>
-                                 <li class="divider"></li>
-                                 <li>
-                                    <a href="#" onclick="$('#dataTableExample1').tableExport({type:'csv',escape:'false'});"> 
-                                    <img src="assets/dist/img/csv.png" width="24" alt="logo"> CSV</a>
-                                 </li>
-                                 <li>
-                                    <a href="#" onclick="$('#dataTableExample1').tableExport({type:'txt',escape:'false'});"> 
-                                    <img src="assets/dist/img/txt.png" width="24" alt="logo"> TXT</a>
-                                 </li>
-                                 <li class="divider"></li>
-                                 <li>
-                                    <a href="#" onclick="$('#dataTableExample1').tableExport({type:'excel',escape:'false'});"> 
-                                    <img src="assets/dist/img/xls.png" width="24" alt="logo"> XLS</a>
-                                 </li>
-                                 <li>
-                                    <a href="#" onclick="$('#dataTableExample1').tableExport({type:'doc',escape:'false'});">
-                                    <img src="assets/dist/img/word.png" width="24" alt="logo"> Word</a>
-                                 </li>
-                                 <li>
-                                    <a href="#" onclick="$('#dataTableExample1').tableExport({type:'powerpoint',escape:'false'});"> 
-                                    <img src="assets/dist/img/ppt.png" width="24" alt="logo"> PowerPoint</a>
-                                 </li>
-                                 <li class="divider"></li>
-                                 <li>
-                                    <a href="#" onclick="$('#dataTableExample1').tableExport({type:'png',escape:'false'});"> 
-                                    <img src="assets/dist/img/png.png" width="24" alt="logo"> PNG</a>
-                                 </li>
-                                 <li>
-                                    <a href="#" onclick="$('#dataTableExample1').tableExport({type:'pdf',pdfFontSize:'7',escape:'false'});"> 
-                                    <img src="assets/dist/img/pdf.png" width="24" alt="logo"> PDF</a>
-                                 </li>
-                              </ul> -->
+                              
                            </div>
                            <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
                            <div class="table-responsive">
@@ -102,9 +49,7 @@
                                  <thead>
                                     <tr class="info">
                                        <th>Sr. No.</th>
-                                       <th>Parent Id</th>
                                        <th>Title</th>
-                                       <th>URL</th>
                                        <th>Discription</th>
                                        <th>Status</th>
                                        <th>Created At</th>
@@ -116,12 +61,10 @@
                                  	@foreach($category as $cat)
                                  	<tr>
                                  	   <td>{{$loop->iteration}}</td>
-                                       <td>{{ $cat->parentId }}</td>
-                                 	   <td>{{ $cat->name }}</td>
-                                 	   <td>{{ $cat->url }}</td>
-                                 	   <td>{{ $cat->description }}</td>
+                                       <td><a href="http://{{ $cat->url }}" target="_BLANK"> {{ $cat->name }}</a></td>
+                                 	   <td>{{ \Illuminate\Support\Str::limit($cat->description, 20, $end='...') }}</td>
                                  	   <td>
-                                          <input data-id="{{$cat->id}}" class="toggle-class-category" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $cat->status ? 'checked' : '' }}>
+                                          <input data-id="{{$cat->id}}" class="toggle-class-category" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" data-size="small" {{ $cat->status ? 'checked' : '' }}>
                                           
                                        </td>
                                  	   <td>{{ $cat->created_at }}</td>
@@ -139,7 +82,7 @@
                                  	      <div class="modal-content">
                                  	         <div class="modal-header modal-header-primary">
                                  	            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                 	            <h3><i class="fa fa-user m-r-5"></i> Delete Product</h3>
+                                 	            <h3> Delete Category</h3>
                                  	         </div>
                                  	         <div class="modal-body">
                                  	            <div class="row">
@@ -149,9 +92,9 @@
                                  	                        <div class="col-md-12 form-group user-form-group">
                                  	                           <label class="control-label">Delete Category</label>
                                  	                           <div class="pull-right">
-                                 	                              <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">NO</button>
+                                 	                              
                                  	                              <!-- <button type="submit" >button> -->
-                                 	                              	<a href="{{ url('admin/deleteCategory/'.$cat->id) }}" class="btn btn-add btn-sm">YES</a>
+                                 	                              	
                                  	                           </div>
                                  	                        </div>
                                  	                     </fieldset>
@@ -160,7 +103,16 @@
                                  	            </div>
                                  	         </div>
                                  	         <div class="modal-footer">
-                                 	            <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Close</button>
+                                 	            <div class="col-xs-6 text-left">
+        <div class="previous">
+          <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Go Back</button>
+        </div>
+    </div>
+    <div class="col-xs-6 text-right">   
+        <div class="next">
+         <a href="{{ url('admin/deleteCategory/'.$cat->id) }}" class="btn btn-add btn-sm">YES</a>
+        </div>
+    </div>
                                  	         </div>
                                  	      </div>
                                  	      <!-- /.modal-content -->

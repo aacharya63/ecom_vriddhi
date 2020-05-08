@@ -12,6 +12,7 @@
       <link rel="shortcut icon" href="{{ asset('admin_assets/dist/img/ico/favicon.png') }}" type="image/x-icon">
       <!-- Start Global Mandatory Style
          =====================================================================-->
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.20.0/ui/trumbowyg.min.css">
       <!-- jquery-ui css -->
       <link href="{{ asset('admin_assets/plugins/jquery-ui-1.12.1/jquery-ui.min.css') }}" rel="stylesheet" type="text/css"/>
       <!-- Bootstrap -->
@@ -85,7 +86,7 @@
       <script src="{{ asset('admin_assets/dist/js/custom.js') }}" type="text/javascript"></script>
       <!-- End Core Plugins
          =====================================================================-->
-      <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+      <script src="http://cdn.tinymce.com/4/tinymce.min.js" referrerpolicy="origin"></script>
       <!-- Start Page Lavel Plugins
          =====================================================================-->
       
@@ -105,7 +106,7 @@
       <script type="text/javascript">
          $(document).ready( function () {
             $('#viewProductTable').DataTable();
-            
+            $('#tablePage').DataTable();
          });
       </script>
 
@@ -248,6 +249,24 @@
             $(this).closest("li").find("[class^='ul_submenu']").slideToggle();
         });
       </script>
-      <script>tinymce.init({selector:'textarea'});</script>
+      <!-- <script>
+        tinymce.init({
+                    selector: "#editPageTextarea",  // change this value according to your HTML
+                    toolbar: "image,paste",
+                    plugins: "image,paste",
+                    menubar: "insert,edit",
+                    paste_data_images: true,
+        });
+      </script> -->
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.20.0/trumbowyg.min.js"></script>
+      <script type="text/javascript">
+        $('#editPageTextarea').trumbowyg();
+      </script>
+      <script type="text/javascript">
+        $("#submit-form-page").submit(function(e){
+            $('#deletePage').modal('show');
+            return false;
+        });
+      </script>
    </body>
    </html>

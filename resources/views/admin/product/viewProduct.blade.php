@@ -8,9 +8,7 @@
          <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <section class="content-header">
-               <div class="header-icon">
-                  <i class="fa fa-eye"></i>
-               </div>
+               
                <div class="header-title">
                   <h1>View Product</h1>
                   <small>Product list</small>

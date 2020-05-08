@@ -8,9 +8,7 @@
          <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <section class="content-header">
-               <div class="header-icon">
-                  <i class="fa fa-eye"></i>
-               </div>
+               
                <div class="header-title">
                   <h1>View Page</h1>
                
@@ -40,7 +38,7 @@
                             </div>
                             <!-- dddddddddd -->
                             <div class="table-responsive">
-            <table class="table table-bordered">
+            <!-- <table class="table table-bordered">
                 <thead>
                 <tr>
                     <th>Title</th>
@@ -77,7 +75,7 @@
                     </td>
                 </tr>
                 </tbody>
-            </table>
+            </table> -->
         </div>
                             <!-- wwwwwwwwwww -->
                            <div class="container">

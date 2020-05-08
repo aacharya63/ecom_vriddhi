@@ -17,7 +17,6 @@ class FrontPagesController extends Controller
     public function index()
     {
         $frontpage_data = FrontPages::all();
-        //return $frontpage_data;
         return View::make('admin.pages.page')->with('frontpage_data', $frontpage_data);
     }
 

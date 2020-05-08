@@ -8,9 +8,7 @@
          <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <section class="content-header">
-               <div class="header-icon">
-                  <i class="fa fa-product-hunt"></i>
-               </div>
+               
                <div class="header-title">
                   <h1>Edit Profile</h1>
                   <small>Edit Profile</small>
