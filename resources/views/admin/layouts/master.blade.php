@@ -242,7 +242,7 @@
   });
       </script>
       
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/js/bootstrap-toggle.js" type="text/javascript"></script>
+      <script src="{{ asset('admin_assets/dist/js/bootstrap-toggle.js') }}" type="text/javascript"></script>
       @include('sweetalert::alert')
       <script type="text/javascript">
         $('li a').click(function(e) {

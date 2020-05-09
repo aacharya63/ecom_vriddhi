@@ -48,7 +48,34 @@ class BlogController extends Controller
             if (empty($data['description'])) {
                 $data['description'] = '';
             }
-            Blog::where(['id'=>$id])->update(['title'=>$data['title'], 'url'=>$data['url'], 'slug'=>$data['slug'], 'description'=>$data['description'], 'image'=>$filename]);
+            
+            if ($request->hasfile('og_image')) {
+                
+                $blogImgo = Blog::where('id',$id)->first();
+                $imgPatho = 'uploads/seo/blogs/';
+                if (file_exists($imgPatho.$blogImgo->og_image)) {
+                    unlink($imgPatho.$blogImgo->og_image);
+                }
+                
+                $img_tmpo   =   Request('og_image');
+                if ( $img_tmpo->isValid() ) {
+                    $extensiono  =   $img_tmpo->getClientOriginalExtension();
+                    $filenameo   =   rand(100,9999).'.'.$extensiono;
+                    $img_patho   =   'uploads/seo/blogs/'.$filenameo;
+                    Image::make($img_tmpo)->resize(500,500)->save($img_patho);
+                }
+            }
+            else{
+                $filenameo = $data['current_imgo'];
+            }
+            if (empty($data['seo_description'])) {
+                $data['seo_description'] = '';
+            }
+            if (empty($data['og_description'])) {
+                $data['og_description'] = '';
+            }
+            
+            Blog::where(['id'=>$id])->update(['title'=>$data['title'], 'url'=>$data['url'], 'slug'=>$data['slug'], 'description'=>$data['description'], 'image'=>$filename, 'author'=>$data['author'], 'seo_description'=>$data['seo_description'], 'keywords'=>$data['Keyword'], 'og_title'=>$data['og_title'], 'og_description'=>$data['og_description'], 'og_type'=>$data['og_type'], 'og_url'=>$data['og_url'], 'og_image'=>$filenameo]);
             Alert::success('Blog updated successfully', 'Success Message');
             return redirect()->back();
         }
@@ -81,13 +108,47 @@ class BlogController extends Controller
             ]);
 
             $data   =   $request->all();
+            // print "<pre>";
+            // print_r($data);
+            // die;
 
             $blog               =   new Blog();
             $blog->title        =   $data['title'];
             $blog->url          =   $data['url'];
             $blog->slug         =   $data['slug'];
             
+            $blog->author   =   $data['author'];
+            $blog->Keywords         =   $data['Keyword'];
+            $blog->og_title         =   $data['og_title'];
+            $blog->og_type         =   $data['og_type'];
+            $blog->og_url         =   $data['og_url'];
             
+            if (!empty($data['seo_description'])) {
+                $blog->seo_description    =   $data['seo_description'];
+            }else{
+                $blog->seo_description    =   '';
+            }
+
+            if (!empty($data['og_description'])) {
+                $blog->og_description    =   $data['og_description'];
+            }else{
+                $blog->og_description    =   '';
+            }
+
+            if ($request->hasfile('og_img')) {
+                $og_img_tmp   =   Request('og_img');
+                if ( $og_img_tmp->isValid() ) {
+            
+                
+                $og_extension  =   $og_img_tmp->getClientOriginalExtension();
+                $og_filename   =   rand(100,9999).'.'.$og_extension;
+                $og_img_path   =   'uploads/seo/blogs/'.$og_filename;
+
+                Image::make($og_img_tmp)->resize(500,500)->save($og_img_path);
+                $blog->og_image   =   $og_filename;
+                }
+            }
+
             if (!empty($data['description'])) {
                 $blog->description    =   $data['description'];
             }else{

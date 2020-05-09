@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateBlogsTable extends Migration
 {
-    /**
+    /*
      * Run the migrations.
      *
      * @return void
@@ -18,8 +18,16 @@ class CreateBlogsTable extends Migration
             $table->string('title');
             $table->string('url');
             $table->string('slug');
-            $table->string('description');
+            $table->longText('description');
             $table->string('image');
+            $table->string('author');
+            $table->longText('seo_description');
+            $table->string('keywords');
+            $table->string('og_title');
+            $table->longText('og_description');
+            $table->string('og_type');
+            $table->string('og_url');
+            $table->string('og_image');
             $table->timestamps();
         });
     }

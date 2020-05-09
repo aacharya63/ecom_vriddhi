@@ -49,6 +49,7 @@
                                  <thead>
                                     <tr class="info">
                                        <th>Sr. No.</th>
+                                       <th>Category Image</th>
                                        <th>Title</th>
                                        <th>Discription</th>
                                        <th>Status</th>
@@ -61,6 +62,12 @@
                                  	@foreach($category as $cat)
                                  	<tr>
                                  	   <td>{{$loop->iteration}}</td>
+                                       <td>@if(!empty($cat->category_img))
+                                          <img src="{{ url('uploads/category/'.$cat->category_img) }}" class="img-circle" alt="{{ $cat->title }} Image" width="50" height="50">
+                                          @else
+                                          <span class="label-custom label label-danger">Image Not Available</span>
+                                          @endif
+                                       </td>
                                        <td><a href="http://{{ $cat->url }}" target="_BLANK"> {{ $cat->name }}</a></td>
                                  	   <td>{{ \Illuminate\Support\Str::limit($cat->description, 20, $end='...') }}</td>
                                  	   <td>

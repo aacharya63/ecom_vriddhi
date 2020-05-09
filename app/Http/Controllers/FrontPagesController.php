@@ -57,12 +57,47 @@ class FrontPagesController extends Controller
                 
             ]);
                 $data   =   $request->all();
+                // print "<pre>";
+                // print_r($data);
+                // die;
 
                 $fp    =   new FrontPages();
                 
                 $fp->title  =   $data['title'];
                 $fp->slug  =   $data['slug'];
                 $fp->link_url     =   $data['url'];
+
+                $fp->author  =   $data['author'];
+                $fp->keywords  =   $data['Keyword'];
+                $fp->og_title  =   $data['og_title'];
+                $fp->og_type  =   $data['og_type'];
+                $fp->og_url  =   $data['og_url'];
+
+                // dddddddddddd
+                if (!empty($data['og_description'])) {
+                    $fp->og_description    =   $data['og_description'];
+                }else{
+                    $fp->og_description    =   '';
+                }
+                if (!empty($data['seo_description'])) {
+                    $fp->seo_description    =   $data['seo_description'];
+                }else{
+                    $fp->seo_description    =   '';
+                }
+                if ($request->hasfile('og_img')) {
+                    $img_tmpo   =   Request('og_img');
+                    if ( $img_tmpo->isValid() ) {
+                        
+                    
+                    $extensiono  =   $img_tmpo->getClientOriginalExtension();
+                    $filenameo   =   rand(100,9999).'.'.$extensiono;
+                    $img_patho   =   'uploads/seo/frontPages/'.$filenameo;
+
+                    Image::make($img_tmpo)->resize(1500,1500)->save($img_patho);
+                    $fp->og_image   =   $filenameo;
+                    }
+                }
+                // wwwwwwwwwww
                 if (!empty($data['description'])) {
                     $fp->description    =   $data['description'];
                 }else{
@@ -123,7 +158,10 @@ class FrontPagesController extends Controller
     {
         // dddddddddddddddd
         $data = $request->all();
-        if ($request->hasfile('img')) {
+        // print "<pre>";
+        // print_r($data);
+        // die;
+            if ($request->hasfile('img')) {
                 
                 $fp = FrontPages::where('id',$id)->first();
                 $imgPath = 'uploads/frontPages/';
@@ -145,7 +183,36 @@ class FrontPagesController extends Controller
             if (empty($data['description'])) {
                 $data['description'] = '';
             }
-            FrontPages::where(['id'=>$id])->update(['title'=>$data['title'], 'link_url'=>$data['url'], 'slug'=>$data['slug'], 'description'=>$data['description'], 'header_img'=>$filename]);
+
+            // 
+            if ($request->hasfile('og_img')) {
+                
+                $fpo = FrontPages::where('id',$id)->first();
+                $imgPatho = 'uploads/seo/frontPages/';
+                if (file_exists($imgPatho.$fpo->og_image)) {
+                    unlink($imgPatho.$fpo->og_image);
+                }
+                
+                $img_tmpo   =   Request('og_img');
+                if ( $img_tmpo->isValid() ) {
+                    $extensiono  =   $img_tmpo->getClientOriginalExtension();
+                    $filenameo   =   rand(100,9999).'.'.$extensiono;
+                    $img_patho   =   'uploads/seo/frontPages/'.$filenameo;
+                    Image::make($img_tmpo)->resize(500,500)->save($img_patho);
+                }
+            }
+            else{
+                $filenameo = $data['current_imgp'];
+            }
+            if (empty($data['seo_description'])) {
+                $data['seo_description'] = '';
+            }
+            if (empty($data['og_description'])) {
+                $data['og_description'] = '';
+            }
+            // 
+
+            FrontPages::where(['id'=>$id])->update(['title'=>$data['title'], 'link_url'=>$data['url'], 'slug'=>$data['slug'], 'description'=>$data['description'], 'header_img'=>$filename, 'author'=>$data['author'], 'seo_description'=>$data['seo_description'], 'keywords'=>$data['Keyword'], 'og_title'=>$data['og_title'], 'og_description'=>$data['og_description'], 'og_type'=>$data['og_type'], 'og_url'=>$data['og_url'], 'og_image'=>$filenameo]);
             Alert::success('Page information updated successfully', 'Success Message');
             return redirect()->back();
         // ssssssssssss
