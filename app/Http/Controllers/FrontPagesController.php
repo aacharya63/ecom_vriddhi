@@ -40,14 +40,10 @@ class FrontPagesController extends Controller
     {
     
         $this->validate($request,[
-                'url' => 'required',
-                'slug' => 'required',
                 'title' => 'required',
                 'img'   =>  'required',
                 'description'    => 'required|min:5|max:35',
             ],[
-                'url.required' => ' The Product name field is required.',
-                'slug.required' => ' The Product code field is required.',
                 'title.required' => ' The Product color field is required.',
                 'description.required' => ' The Product discription field is required.',
                 'description.min' => ' The Product discription must be at least 5 characters.',
@@ -57,16 +53,12 @@ class FrontPagesController extends Controller
                 
             ]);
                 $data   =   $request->all();
-                // print "<pre>";
-                // print_r($data);
-                // die;
+                
 
                 $fp    =   new FrontPages();
                 
                 $fp->title  =   $data['title'];
-                $fp->slug  =   $data['slug'];
-                $fp->link_url     =   $data['url'];
-
+            
                 $fp->author  =   $data['author'];
                 $fp->keywords  =   $data['Keyword'];
                 $fp->og_title  =   $data['og_title'];
@@ -78,6 +70,11 @@ class FrontPagesController extends Controller
                     $fp->og_description    =   $data['og_description'];
                 }else{
                     $fp->og_description    =   '';
+                }
+                if (!empty($data['pgCon'])) {
+                    $fp->pgCon    =   $data['pgCon'];
+                }else{
+                    $fp->pgCon    =   '';
                 }
                 if (!empty($data['seo_description'])) {
                     $fp->seo_description    =   $data['seo_description'];

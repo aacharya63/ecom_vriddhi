@@ -261,6 +261,8 @@
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.20.0/trumbowyg.min.js"></script>
       <script type="text/javascript">
         $('#editPageTextarea').trumbowyg();
+        $('#pgCon').trumbowyg();
+        
       </script>
       <script type="text/javascript">
         $("#submit-form-page").submit(function(e){
@@ -268,5 +270,46 @@
             return false;
         });
       </script>
+      <script type="text/javascript">
+
+$(document).ready(function(){
+
+    var counter = 2;
+
+    $("#add").click(function () {
+
+  if(counter>10){
+            alert("Only 10 textboxes allow");
+            return false;
+  }
+
+  var newTextBoxDiv = $(document.createElement('div'))
+       .attr("id", 'subcontentDiv' + counter);
+
+  newTextBoxDiv.after().html('<label>Textbox #'+ counter + ' : </label>' +
+        '<input type="text" class="form-control" name="subcontentTitle[]" id="subcontentTitle' + counter + '" value="" >'+
+        '<textarea class="form-control" name="subcontentDis[]" id="subcontentDis' + counter + '" ></textarea>');
+
+  newTextBoxDiv.appendTo("#subcontentGroup");
+
+
+  counter++;
+     });
+
+     $("#remove").click(function () {
+  if(counter==1){
+          alert("No more textbox to remove");
+          return false;
+       }
+
+  counter--;
+
+        $("#subcontentDiv" + counter).remove();
+
+     });
+
+     
+  });
+</script>
    </body>
    </html>

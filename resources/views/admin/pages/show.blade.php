@@ -19,7 +19,7 @@
             <section class="content">
                <div class="row">
                   <div class="col-sm-12">
-                     <div class="panel panel-bd lobidrag">
+                     <div class="panel panel-bd">
                         <div class="panel-heading">
                            <div class="btn-group" id="buttonexport">
                               <a href="#">

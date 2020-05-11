@@ -56,9 +56,11 @@
                                     <input data-id="{{$fd->id}}" class="toggle-class-page" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" data-size="mini" {{ $fd->status ? 'checked' : '' }}>
                                  </td>
                                  <td>
-                                    <a class="btn btn-info btn-xs" href="{{ route('page.show',$fd->id) }}"><span class="glyphicon glyphicon-eye-open"></span>Show</a>
-                                    <a class="btn btn-primary btn-xs" href="{{ route('page.edit',$fd->id) }}"><span class="glyphicon glyphicon-edit"></span>Edit</a>
-                                    <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deletePage"><span class="glyphicon glyphicon-remove"></span>Delete</button>
+                                    <a class="btn btn-info btn-sm" href="{{ route('page.show',$fd->id) }}" data-toggle="tooltip" title="Show Data"><span class="glyphicon glyphicon-eye-open"></span></a>
+                                    <a class="btn btn-primary btn-sm" href="{{ route('page.edit',$fd->id) }}" data-toggle="tooltip" title="Edit Record"><span class="glyphicon glyphicon-edit"></span></a>
+                                    <a href="{{ url('admin/addCollapse/'.$fd->id) }}" class="btn btn-success btn-sm" data-toggle="tooltip" title="Add Collapsible content on page"><span class="glyphicon glyphicon-plus"></span></a>
+                          
+                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Delete The Record"><span data-toggle="modal" data-target="#deletePage"><span class="glyphicon glyphicon-remove"></span></span></button>
                                  </td>
                                  <!-- Customer Modal2 -->
                                  <div class="modal fade" id="deletePage" tabindex="-1" role="dialog" aria-hidden="true">

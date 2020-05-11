@@ -17,9 +17,10 @@ class CreateFrontPagesTable extends Migration
             $table->id();
             $table->string('title');
             $table->longText('description');
-            $table->string('slug');
+            $table->longText('pgCon');
+            
             $table->string('header_img');
-            $table->string('link_url');
+            
             $table->tinyInteger('status')->default('1');
             $table->string('author');
             $table->longText('seo_description');
