@@ -209,7 +209,7 @@ class FrontPagesController extends Controller
             }
             // 
 
-            FrontPages::where(['id'=>$id])->update(['title'=>$data['title'], 'link_url'=>$data['url'], 'slug'=>$data['slug'], 'description'=>$data['description'], 'header_img'=>$filename, 'author'=>$data['author'], 'seo_description'=>$data['seo_description'], 'keywords'=>$data['Keyword'], 'og_title'=>$data['og_title'], 'og_description'=>$data['og_description'], 'og_type'=>$data['og_type'], 'og_url'=>$data['og_url'], 'og_image'=>$filenameo]);
+            FrontPages::where(['id'=>$id])->update(['title'=>$data['title'], 'pgCon'=>$data['pgCon'] ,'description'=>$data['description'], 'header_img'=>$filename, 'author'=>$data['author'], 'seo_description'=>$data['seo_description'], 'keywords'=>$data['Keyword'], 'og_title'=>$data['og_title'], 'og_description'=>$data['og_description'], 'og_type'=>$data['og_type'], 'og_url'=>$data['og_url'], 'og_image'=>$filenameo]);
             Alert::success('Page information updated successfully', 'Success Message');
             return redirect()->back();
         // ssssssssssss

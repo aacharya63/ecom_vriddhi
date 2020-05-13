@@ -60,8 +60,6 @@
                                     <textarea class="form-control" name="pgCon" id="pgCon"></textarea>
                                  </div>
                               </div>
-                              
-                              
                            </fieldset>
                            <fieldset>
                               <legend>SEO Details</legend>

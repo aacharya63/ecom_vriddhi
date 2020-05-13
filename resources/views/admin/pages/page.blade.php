@@ -1,11 +1,6 @@
 @extends('admin.layouts.master')
 @section('title', 'All Pages')
 @section('content')
-<style type="text/css">
-   .tox-tinymce{
-   height: 900px !important;
-   }
-</style>
 <body class="hold-transition sidebar-mini">
    <!-- Site wrapper -->
    <div class="wrapper">
@@ -58,39 +53,49 @@
                                  <td>
                                     <a class="btn btn-info btn-sm" href="{{ route('page.show',$fd->id) }}" data-toggle="tooltip" title="Show Data"><span class="glyphicon glyphicon-eye-open"></span></a>
                                     <a class="btn btn-primary btn-sm" href="{{ route('page.edit',$fd->id) }}" data-toggle="tooltip" title="Edit Record"><span class="glyphicon glyphicon-edit"></span></a>
-                                    <a href="{{ url('admin/addCollapse/'.$fd->id) }}" class="btn btn-success btn-sm" data-toggle="tooltip" title="Add Collapsible content on page"><span class="glyphicon glyphicon-plus"></span></a>
-                          
+                                    <!-- <a href="{{ url('admin/addCollapse/'.$fd->id) }}" class="btn btn-success btn-sm" data-toggle="tooltip" title="Add Collapsible content on page"><span class="glyphicon glyphicon-plus"></span></a> -->
+                                    <a href="{{ url('admin/addCollapse/'.$fd->id) }}" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Add Collapsible content on page"><span class="glyphicon glyphicon-plus"></span></a>
                                     <button type="button" class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Delete The Record"><span data-toggle="modal" data-target="#deletePage"><span class="glyphicon glyphicon-remove"></span></span></button>
                                  </td>
-                                 <!-- Customer Modal2 -->
+                                 
+                                 <!-- delete Modal -->
                                  <div class="modal fade" id="deletePage" tabindex="-1" role="dialog" aria-hidden="true">
                                     <div class="modal-dialog">
                                        <div class="modal-content">
                                           <div class="modal-header modal-header-primary">
                                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                             <h3><i class="fa fa-user m-r-5"></i> Delete Page</h3>
+                                             <h3> Delete <span class="label label-primary">{{ $fd->title }}</span></h3>
                                           </div>
                                           <div class="modal-body">
                                              <div class="row">
                                                 <div class="col-md-12">
                                                    <!-- ccccc -->
                                                    <form action="{{ route('page.destroy',$fd->id) }}" method="POST">
-                                                    @csrf
+                                                      @csrf
                                                       @method('DELETE')
                                                       <div class="col-md-12 form-group user-form-group">
-                                                             <label class="control-label">Delete Page</label>
-                                                             <div class="pull-right">
-                                                                <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">NO</button>
-                                                                <button type="submit" class="btn btn-success btn-sm">Yes</button>
-                                                             </div>
-                                                          </div>
+                                                         <label class="control-label">Do you rally want to delete this record</label>
+                                                         <div class="pull-right">
+                                                            
+                                                            
+                                                         </div>
+                                                      </div>
                                                    </form>
                                                    <!-- ddddddd -->
                                                 </div>
                                              </div>
                                           </div>
                                           <div class="modal-footer">
-                                             <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Close</button>
+                                             <div class="col-xs-6 text-left">
+        <div class="previous">
+          <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Go back</button>
+        </div>
+    </div>
+    <div class="col-xs-6 text-right">   
+        <div class="next">
+         <button type="submit" class="btn btn-success btn-sm">Yes, I confirm</button>
+        </div>
+    </div>
                                           </div>
                                        </div>
                                        <!-- /.modal-content -->

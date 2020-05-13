@@ -208,9 +208,13 @@ class BlogController extends Controller
         
         $blog_delete = Blog::where('id',$id)->first();
         $imgPath = 'uploads/blogs/';
-        if (file_exists($imgPath.$blog_delete->image)) {
-            unlink($imgPath.$blog_delete->image);
+        if (!empty($blog_delete->image)) {
+            if (file_exists($imgPath.$blog_delete->image)) {
+                unlink($imgPath.$blog_delete->image);
+            }
         }
+        
+
         Blog::where('id',$id)->delete();
         Alert::success('Blog deleted successfully', 'Success Message');
         return redirect()->back();

@@ -65,6 +65,7 @@ Route::group(['middleware'	=>	['auth']], function(){
 	Route::match(['get','post'], '/admin/addAttribute/{id}', 'ProductController@addAttribute');
 	// collapse 
 	Route::match(['get','post'], '/admin/addCollapse/{id}', 'PageCollapseDataController@addCollapse');
+	Route::match(['get'], '/admin/viewCollapse', 'PageCollapseDataController@show');
 	// collapse ends
 	Route::match(['get','post'], '/admin/deleteAttribute/{id}', 'ProductController@deleteAttribute');
 	Route::match(['get','post'], '/admin/editAttribute/{id}', 'ProductController@editAttribute');

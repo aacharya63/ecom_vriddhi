@@ -45,7 +45,7 @@
   <div class="row">
     <div class="col-md-12 text-center">
       <!-- about us main content 2 -->
-    </div>
+    </div> 
       <!-- about us main content 3 -->
   </div>
   </div>

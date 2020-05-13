@@ -286,9 +286,8 @@ $(document).ready(function(){
   var newTextBoxDiv = $(document.createElement('div'))
        .attr("id", 'subcontentDiv' + counter);
 
-  newTextBoxDiv.after().html('<label>Textbox #'+ counter + ' : </label>' +
-        '<input type="text" class="form-control" name="subcontentTitle[]" id="subcontentTitle' + counter + '" value="" >'+
-        '<textarea class="form-control" name="subcontentDis[]" id="subcontentDis' + counter + '" ></textarea>');
+  newTextBoxDiv.after().html('' +
+        '<div class="container-fluid"><div class="form-group"><label>Title</label><div class="input-group {{ $errors->has("subcontentTitle") ? "has-error" : "" }}"><input type="text" class="form-control" name="subcontentTitle[]" id="subcontentTitle" placeholder="Enter Page title" required value="{{old("subcontentTitle")}}"><span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span><span class="text-danger">{{ $errors->first("subcontentTitle") }}</span></div></div><div class="form-group"><label>Description</label><div class="input-group {{ $errors->has("subcontentDis") ? "has-error" : "" }}"><textarea class="form-control" name="subcontentDis[]" id="subcontentDis"></textarea><span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span><span class="text-danger">{{ $errors->first("subcontentTitle") }}</span></div></div></div>');
 
   newTextBoxDiv.appendTo("#subcontentGroup");
 
