@@ -8,12 +8,8 @@
          <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <section class="content-header">
-               <div class="header-icon">
-                  <i class="fa fa-product-hunt"></i>
-               </div>
                <div class="header-title">
                   <h1>Add Banner</h1>
-                  <small>Banner list</small>
                </div>
             </section>
             <!-- Main content -->
@@ -21,12 +17,9 @@
                <div class="row">
                   <!-- Form controls -->
                   <div class="col-sm-12">
-                     <div class="panel panel-bd lobidrag">
+                     <div class="panel panel-bd">
                         <div class="panel-heading">
-                           <div class="btn-group" id="buttonlist"> 
-                              <a class="btn btn-add " href="{{ url('admin/banner') }}"> 
-                              <i class="fa fa-list"></i>  Banner List </a>  
-                           </div>
+                           
                         </div>
                         <div class="panel-body">
                           @if(Session::has('flsMsgSucBan'))
@@ -37,45 +30,55 @@
                           @endif
                            <form action="{{ url('admin/addBanner') }}" method="post" enctype="multipart/form-data">
                            	@csrf
-                           	<div class="col-sm-6">
-                              
-                              <div class="form-group {{ $errors->has('banner_name') ? 'has-error' : '' }}">
-                                 <label>Banner Name</label>
-                                 <input type="text" class="form-control" name="banner_name" id="banner_name" placeholder="Enter Banner Name" required>
+                           	<!-- hhhhhhh -->
+                            <div class="form-group">
+                              <h2 class="heading">Banner Details</h2>
+                              <div class="controls {{ $errors->has('banner_name') ? 'has-error' : '' }}">
+                                 <label>Banner name</label>
+                                 <input type="text" class="floatLabel" name="banner_name" id="banner_name" placeholder="Enter Banner Name" required>
                                  <span class="text-danger">{{ $errors->first('banner_name') }}</span>
                               </div>
-                              <div class="form-group {{ $errors->has('text_style') ? 'has-error' : '' }}">
+                              <div class="controls {{ $errors->has('text_style') ? 'has-error' : '' }}">
                                  <label>Text Style</label>
-                                 <input type="text" class="form-control" name="text_style" id="text_style" placeholder="Enter text style" required>
+                                 <input type="text" class="floatLabel" name="text_style" id="text_style" placeholder="Enter text style" required>
                                  <span class="text-danger">{{ $errors->first('text_style') }}</span>
                               </div>
-                              <div class="form-group {{ $errors->has('banner_content') ? 'has-error' : '' }}">
-                                 <label>Banner content</label>
-                                 <textarea class="form-control" name="banner_content" id="banner_content"></textarea>
-                                 <span class="text-danger">{{ $errors->first('banner_content') }}</span>
+                           </div>
+                           <div class="controls {{ $errors->has('banner_content') ? 'has-error' : '' }}">
+                              <label>Banner content</label>
+                              <textarea class="floatLabel" name="banner_content" id="banner_content"></textarea>
+                              <span class="text-danger">{{ $errors->first('banner_content') }}</span>
+                           </div>
+                           <div class="controls {{ $errors->has('banner_link') ? 'has-error' : '' }}">
+                              <label>Banner link</label>
+                              <input type="text" class="floatLabel" name="banner_link" id="banner_link" placeholder="Enter Banner Link" required>
+                              <span class="text-danger">{{ $errors->first('banner_link') }}</span>
+                           </div>
+                           <div class="controls {{ $errors->has('sort_order') ? 'has-error' : '' }}">
+                             <label>Sort Order</label>
+                             <input type="text" class="floatLabel" name="sort_order" id="sort_order" required="required" placeholder="sort order" />
+                             <span class="text-danger">{{ $errors->first('sort_order') }}</span>
+                           </div>
+                           <div class="controls {{ $errors->has('banner_img') ? 'has-error' : '' }}">
+                             <label>Banner image</label>
+                             <input type="file" name="banner_img" id="banner_img" class="floatLabel">
+                             <span class="text-danger">{{ $errors->first('banner_img') }}</span>
+                           </div>
+                           <div class="form-group">
+                              <div class="row">
+                                 <div class="col-md-6">
+                                    <div class="controls">
+                                       <button style="background-color: red !important" type="reset">Reset Form</button>
+                                    </div>
+                                 </div>
+                                 <div class="col-md-6">
+                                    <div class="controls">
+                                       <button>Submit</button>
+                                    </div>
+                                 </div>
                               </div>
-                              <div class="form-group {{ $errors->has('banner_link') ? 'has-error' : '' }}">
-                                 <label>Link</label>
-                                 <input type="text" class="form-control" name="banner_link" id="banner_link" placeholder="Enter Banner Link" required>
-                                 <span class="text-danger">{{ $errors->first('banner_link') }}</span>
-                              </div>
-                            </div>
-                           	<div class="col-sm-6">
-                               <div class="form-group {{ $errors->has('sort_order') ? 'has-error' : '' }}">
-                                  <label>Sort order</label>
-                                  <input type="text" class="form-control" name="sort_order" id="sort_order" required="required" placeholder="sort_order" />
-                                  <span class="text-danger">{{ $errors->first('sort_order') }}</span>
-                               </div>
-                               <div class="form-group {{ $errors->has('banner_img') ? 'has-error' : '' }}">
-                                  <label>Banner Image upload</label>
-                                  <input type="file" name="banner_img" id="banner_img" class="form-control">
-                                  <span class="text-danger">{{ $errors->first('banner_img') }}</span>
-                               </div>
-                            </div>
-                          <div class="reset-button">
-                             <button type="reset" class="btn btn-warning">Reset</button>
-                             <button type="submit" class="btn btn-success">Save</button>
-                          </div>
+                           </div>
+                            <!-- iiiiiiiiiii -->
                            </form>
                         </div>
                      </div>

@@ -31,32 +31,32 @@ class BannerController extends Controller
     {
         if ($request->isMethod('post')) {
             $this->validate($request,[
-                'banner_name' => 'required|min:5|max:35',
-                'text_style' => 'required|min:5|max:35',
+                'banner_name' => 'required',
+                'text_style' => 'required',
                 'sort_order' => 'required|numeric',
-                'banner_content' => 'required|min:5|max:35',
-                'banner_link' => 'required|min:5|max:35',
+                'banner_content' => 'required',
+                'banner_link' => 'required',
                 'banner_img' => 'required',
                 
             ],[
                 'banner_name.required' => ' The Banner name field is required.',
-                'banner_name.min' => ' The Banner name must be at least 5 characters.',
-                'banner_name.max' => ' The Banner name may not be greater than 35 characters.',
+                // 'banner_name.min' => ' The Banner name must be at least 5 characters.',
+                // 'banner_name.max' => ' The Banner name may not be greater than 35 characters.',
                 
                 'text_style.required' => ' The Banner text style field is required.',
-                'text_style.min' => ' The Banner text style must be at least 5 characters.',
-                'text_style.max' => ' The Banner text style may not be greater than 35 characters.',
+                // 'text_style.min' => ' The Banner text style must be at least 5 characters.',
+                // 'text_style.max' => ' The Banner text style may not be greater than 35 characters.',
 
                 'sort_order.required' => ' The Banner sort order field is required.',
                 'sort_order.numeric' => ' The Banner sort order must be numeric.',
                 
                 'banner_content.required' => ' The Banner content field is required.',
-                'banner_content.min' => ' The Banner content must be at least 5 characters.',
-                'banner_content.max' => ' The Banner content may not be greater than 35 characters.',
+                // 'banner_content.min' => ' The Banner content must be at least 5 characters.',
+                // 'banner_content.max' => ' The Banner content may not be greater than 35 characters.',
 
                 'banner_link.required' => ' The Banner link field is required.',
-                'banner_link.min' => ' The Banner link must be at least 5 characters.',
-                'banner_link.max' => ' The Banner link may not be greater than 35 characters.',
+                // 'banner_link.min' => ' The Banner link must be at least 5 characters.',
+                // 'banner_link.max' => ' The Banner link may not be greater than 35 characters.',
 
                 'banner_img.required' => ' The Banner image must be uploaded.',
                 
@@ -79,6 +79,7 @@ class BannerController extends Controller
                 }
             }
             $banner->save();
+            Alert::success('Banner Added successfully', 'Success Message');
             return redirect('/admin/banner')->with('fls_msg_suc_ban', 'Banner information saved successfully');
         }
 

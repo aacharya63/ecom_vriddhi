@@ -17,7 +17,7 @@ class CreateFrontPagesTable extends Migration
             $table->id();
             $table->string('title');
             $table->longText('description');
-            $table->longText('pgCon');
+            
             
             $table->string('header_img');
             

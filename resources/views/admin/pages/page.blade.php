@@ -20,17 +20,28 @@
             <div class="row">
                <!-- Form controls -->
                <div class="col-sm-12">
-                  <div class="panel panel-bd lobidrag">
+                  <div class="panel panel-default panel-table">
+                     <div class="panel-heading">
+                        <div class="row">
+                           <div class="col col-xs-6">
+                              <h3 class="panel-title">Page Created</h3>
+                           </div>
+                           <div class="col col-xs-6 text-right">
+                              <a href="{{ url('admin/page/create')}}" class="btn btn-sm btn-primary btn-create"><b>+</b> Add new page</a>
+                              
+                           </div>
+                        </div>
+                     </div>
                      <div class="panel-body">
                         <div class="table-responsive">
                            <table class="table table-bordered table-striped table-hover" id="tablePage">
                               <thead>
-                                 <a href="{{ url('admin/page/create')}}" class="btn btn-primary btn-sm pull-right"><b>+</b> Add new page</a>
+                                 
                                  <tr>
                                     <th>Sr No.</th>
                                     <th>Header Image</th>
                                     <th>Title</th>
-                                    <th>Last Update (Date and Time)</th>
+                                    <th>Last Update</th>
                                     <th>Status</th>
                                     <th class="text-center">Action</th>
                                  </tr>
@@ -53,11 +64,9 @@
                                  <td>
                                     <a class="btn btn-info btn-sm" href="{{ route('page.show',$fd->id) }}" data-toggle="tooltip" title="Show Data"><span class="glyphicon glyphicon-eye-open"></span></a>
                                     <a class="btn btn-primary btn-sm" href="{{ route('page.edit',$fd->id) }}" data-toggle="tooltip" title="Edit Record"><span class="glyphicon glyphicon-edit"></span></a>
-                                    <!-- <a href="{{ url('admin/addCollapse/'.$fd->id) }}" class="btn btn-success btn-sm" data-toggle="tooltip" title="Add Collapsible content on page"><span class="glyphicon glyphicon-plus"></span></a> -->
-                                    <a href="{{ url('admin/addCollapse/'.$fd->id) }}" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Add Collapsible content on page"><span class="glyphicon glyphicon-plus"></span></a>
+                                    <a href="{{ url('admin/addCollapse/'.$fd->id) }}" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Add Collapsible content on page" style="display: none;"><span class="glyphicon glyphicon-plus"></span></a>
                                     <button type="button" class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Delete The Record"><span data-toggle="modal" data-target="#deletePage"><span class="glyphicon glyphicon-remove"></span></span></button>
                                  </td>
-                                 
                                  <!-- delete Modal -->
                                  <div class="modal fade" id="deletePage" tabindex="-1" role="dialog" aria-hidden="true">
                                     <div class="modal-dialog">
@@ -76,8 +85,6 @@
                                                       <div class="col-md-12 form-group user-form-group">
                                                          <label class="control-label">Do you rally want to delete this record</label>
                                                          <div class="pull-right">
-                                                            
-                                                            
                                                          </div>
                                                       </div>
                                                    </form>
@@ -87,15 +94,15 @@
                                           </div>
                                           <div class="modal-footer">
                                              <div class="col-xs-6 text-left">
-        <div class="previous">
-          <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Go back</button>
-        </div>
-    </div>
-    <div class="col-xs-6 text-right">   
-        <div class="next">
-         <button type="submit" class="btn btn-success btn-sm">Yes, I confirm</button>
-        </div>
-    </div>
+                                                <div class="previous">
+                                                   <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Go back</button>
+                                                </div>
+                                             </div>
+                                             <div class="col-xs-6 text-right">
+                                                <div class="next">
+                                                   <button type="submit" class="btn btn-success btn-sm">Yes, I confirm</button>
+                                                </div>
+                                             </div>
                                           </div>
                                        </div>
                                        <!-- /.modal-content -->
@@ -109,8 +116,8 @@
                                  @endif
                            </table>
                         </div>
-                        <!-- ddddddddddd -->
                      </div>
+                     
                   </div>
                </div>
             </div>

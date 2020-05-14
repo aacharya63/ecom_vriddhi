@@ -14,27 +14,28 @@ class IndexController extends Controller
 {
     public function index(){
     	$banner_data = Banner::where(['status'=>1])->orderby('sort_order', 'asc')->get();
-    	$product_data = Product::where(['status'=>1])->orderby('id', 'asc')->get();
-    	return view('vriddhi.index')->with(compact('banner_data', 'product_data'));
+    	$pg_data = FrontPages::where(['status'=>1, 'id'=>1])->orderby('id', 'asc')->get();
+    	return view('vriddhi.index')->with(compact('banner_data', 'pg_data'));
     }
 
     public function about(){
-        $FrontPages = FrontPages::where(['id'=>1,'status'=>1])->orderby('id', 'asc')->get();
-        return view('vriddhi.about')->with(compact('FrontPages'));
+        $pg_data = FrontPages::where(['id'=>2,'status'=>1])->orderby('id', 'asc')->get();
+        return view('vriddhi.about')->with(compact('pg_data'));
     }
 
     public function fbg(){
-        $FrontPages = FrontPages::where(['id'=>4,'status'=>1])->orderby('id', 'asc')->get();
-        return view('vriddhi.freeBuyersGuide')->with(compact('FrontPages'));
+        $pg_data = FrontPages::where(['id'=>6,'status'=>1])->orderby('id', 'asc')->get();
+        return view('vriddhi.freeBuyersGuide')->with(compact('pg_data'));
     }
 
     public function onlineStore(){
-    	return view('vriddhi.onlineStore');
+        $pg_data = FrontPages::where(['id'=>5,'status'=>1])->orderby('id', 'asc')->get();
+    	return view('vriddhi.onlineStore')->with(compact('pg_data'));
     }
 
     public function rh(){
-    	$FrontPages = FrontPages::where(['id'=>3,'status'=>1])->orderby('id', 'asc')->get();
-        return view('vriddhi.radioHire')->with(compact('FrontPages'));
+    	$pg_data = FrontPages::where(['id'=>4,'status'=>1])->orderby('id', 'asc')->get();
+        return view('vriddhi.radioHire')->with(compact('pg_data'));
     }
 
     public function ln(Request $request){
@@ -43,8 +44,9 @@ class IndexController extends Controller
     }
 
     public function frb(){
+        $pg_data = FrontPages::where(['id'=>3,'status'=>1])->orderby('id', 'asc')->get();
         $category_data = Category::where(['status'=>1])->orderby('id', 'asc')->get();
-        return view('vriddhi.findRadioBy')->with(compact('category_data'));
+        return view('vriddhi.findRadioBy')->with(compact('category_data', 'pg_data'));
     }
 
     public function contact(){

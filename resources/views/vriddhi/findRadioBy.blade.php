@@ -6,8 +6,13 @@
   <div class="clearfix"></div>
   <section class="inner-banner-sec">
   <div class="inner-baner">
-        
-    <img src="{{ url('front_assets/image/inner-banner.jpg') }}" style="width: 100%">
+    @if(!empty($pg_data))
+    @foreach($pg_data as $pg)    
+    <img src="{{ asset('uploads/frontPages/'.$pg->header_img) }}" style="width: 100%">
+    @endforeach
+    @else
+    <img src="http://vridhisoftech.co.in/sh/waki-taki/public/front_assets/image/inner-banner.jpg" style="width: 100%">
+    @endif
   </div>
 
 </section>
@@ -70,7 +75,7 @@
       <div class="col-md-3 col-sm-6">
         <div class="new-product-box">
           <div class="new-p-img">
-            <img src="image/Walki-Talki-2.jpg" style="width: 100%;">
+            <img src="http://vridhisoftech.co.in/sh/waki-taki/public/front_assets/image/Walki-Talki-2.jpg" style="width: 100%;">
           </div>
           <div class="new-p-cont">
             <p>Pronto PTZ Max CCTV Systems</p>
@@ -82,7 +87,7 @@
       <div class="col-md-3 col-sm-6">
         <div class="new-product-box">
           <div class="new-p-img">
-            <img src="image/Walki-Talki-2.jpg" style="width: 100%;">
+            <img src="http://vridhisoftech.co.in/sh/waki-taki/public/front_assets/image/Walki-Talki-2.jpg" style="width: 100%;">
           </div>
           <div class="new-p-cont">
             <p>Pronto PTZ Max CCTV Systems</p>
@@ -94,7 +99,7 @@
       <div class="col-md-3 col-sm-6">
         <div class="new-product-box">
           <div class="new-p-img">
-            <img src="image/Walki-Talki-2.jpg" style="width: 100%;">
+            <img src="http://vridhisoftech.co.in/sh/waki-taki/public/front_assets/image/Walki-Talki-2.jpg" style="width: 100%;">
           </div>
           <div class="new-p-cont">
             <p>Pronto PTZ Max CCTV Systems</p>
@@ -106,7 +111,7 @@
       <div class="col-md-3 col-sm-6">
         <div class="new-product-box">
           <div class="new-p-img">
-            <img src="image/Walki-Talki-2.jpg" style="width: 100%;">
+            <img src="http://vridhisoftech.co.in/sh/waki-taki/public/front_assets/image/Walki-Talki-2.jpg" style="width: 100%;">
           </div>
           <div class="new-p-cont">
             <p>Pronto PTZ Max CCTV Systems</p>

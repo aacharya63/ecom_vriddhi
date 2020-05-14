@@ -8,12 +8,8 @@
          <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <section class="content-header">
-               <div class="header-icon">
-                  <i class="fa fa-eye"></i>
-               </div>
                <div class="header-title">
                   <h1>View Banner</h1>
-                  <small>Banner list</small>
                </div>
             </section>
             @if(Session::has('fls_msg_suc_ban'))

@@ -38,13 +38,17 @@ class FrontPagesController extends Controller
      */
     public function store(Request $request)
     {
-    
+        $data   =   $request->all();
+        // print "<pre>";
+        // print_r($data);
+        // die;
+        
         $this->validate($request,[
                 'title' => 'required',
                 'img'   =>  'required',
                 'description'    => 'required|min:5|max:35',
             ],[
-                'title.required' => ' The Product color field is required.',
+                'title.required' => ' The Product title field is required.',
                 'description.required' => ' The Product discription field is required.',
                 'description.min' => ' The Product discription must be at least 5 characters.',
                 'description.max' => ' The Product discription may not be greater than 35 characters.',
@@ -52,7 +56,7 @@ class FrontPagesController extends Controller
                 'img.required' => ' The Product image must be uploaded.',
                 
             ]);
-                $data   =   $request->all();
+                
                 
 
                 $fp    =   new FrontPages();
@@ -71,11 +75,7 @@ class FrontPagesController extends Controller
                 }else{
                     $fp->og_description    =   '';
                 }
-                if (!empty($data['pgCon'])) {
-                    $fp->pgCon    =   $data['pgCon'];
-                }else{
-                    $fp->pgCon    =   '';
-                }
+                
                 if (!empty($data['seo_description'])) {
                     $fp->seo_description    =   $data['seo_description'];
                 }else{
@@ -155,9 +155,7 @@ class FrontPagesController extends Controller
     {
         // dddddddddddddddd
         $data = $request->all();
-        // print "<pre>";
-        // print_r($data);
-        // die;
+    
             if ($request->hasfile('img')) {
                 
                 $fp = FrontPages::where('id',$id)->first();
@@ -209,9 +207,9 @@ class FrontPagesController extends Controller
             }
             // 
 
-            FrontPages::where(['id'=>$id])->update(['title'=>$data['title'], 'pgCon'=>$data['pgCon'] ,'description'=>$data['description'], 'header_img'=>$filename, 'author'=>$data['author'], 'seo_description'=>$data['seo_description'], 'keywords'=>$data['Keyword'], 'og_title'=>$data['og_title'], 'og_description'=>$data['og_description'], 'og_type'=>$data['og_type'], 'og_url'=>$data['og_url'], 'og_image'=>$filenameo]);
+            FrontPages::where(['id'=>$id])->update(['title'=>$data['title'], 'description'=>$data['description'], 'header_img'=>$filename, 'author'=>$data['author'], 'seo_description'=>$data['seo_description'], 'keywords'=>$data['Keyword'], 'og_title'=>$data['og_title'], 'og_description'=>$data['og_description'], 'og_type'=>$data['og_type'], 'og_url'=>$data['og_url'], 'og_image'=>$filenameo]);
             Alert::success('Page information updated successfully', 'Success Message');
-            return redirect()->back();
+           return redirect()->route('page.index');
         // ssssssssssss
     }
 
